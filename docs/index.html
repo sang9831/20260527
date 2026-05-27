@@ -1,0 +1,615 @@
+<!doctype html>
+
+<html class="dark" lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@500&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-dim": "#0f1418",
+              "on-secondary-container": "#00302b",
+              tertiary: "#d0bcff",
+              "error-container": "#93000a",
+              "on-tertiary-fixed-variant": "#5516be",
+              "on-primary-container": "#003751",
+              "surface-bright": "#353a3e",
+              "surface-container-low": "#171c20",
+              "on-tertiary-fixed": "#23005c",
+              secondary: "#6bd8cb",
+              error: "#ffb4ab",
+              "on-primary-fixed-variant": "#004c6e",
+              "surface-container": "#1b2024",
+              "surface-container-highest": "#30353a",
+              "surface-container-high": "#252b2f",
+              "on-surface": "#dee3e9",
+              "on-secondary-fixed": "#00201d",
+              "primary-container": "#0ea5e9",
+              "on-secondary-fixed-variant": "#005049",
+              "secondary-container": "#29a195",
+              "inverse-surface": "#dee3e9",
+              "on-primary": "#00344d",
+              "surface-variant": "#30353a",
+              "inverse-primary": "#006591",
+              "primary-fixed-dim": "#89ceff",
+              "secondary-fixed": "#89f5e7",
+              "on-secondary": "#003732",
+              "on-error": "#690005",
+              "outline-variant": "#3e4850",
+              background: "#0f1418",
+              surface: "#0f1418",
+              "on-error-container": "#ffdad6",
+              "secondary-fixed-dim": "#6bd8cb",
+              "tertiary-container": "#a986ff",
+              "primary-fixed": "#c9e6ff",
+              "surface-container-lowest": "#0a0f13",
+              "tertiary-fixed": "#e9ddff",
+              "on-tertiary-container": "#3e0097",
+              "tertiary-fixed-dim": "#d0bcff",
+              "on-tertiary": "#3c0091",
+              primary: "#89ceff",
+              outline: "#88929b",
+              "on-primary-fixed": "#001e2f",
+              "on-background": "#dee3e9",
+              "inverse-on-surface": "#2c3135",
+              "surface-tint": "#89ceff",
+              "on-surface-variant": "#bec8d2",
+            },
+            borderRadius: {
+              DEFAULT: "0.125rem",
+              lg: "0.25rem",
+              xl: "0.5rem",
+              full: "0.75rem",
+            },
+            spacing: {
+              "container-max": "1280px",
+              md: "24px",
+              xl: "64px",
+              base: "4px",
+              xs: "8px",
+              gutter: "20px",
+              lg: "40px",
+              sm: "16px",
+            },
+            fontFamily: {
+              "headline-md": ["Inter"],
+              "headline-lg-mobile": ["Inter"],
+              "body-lg": ["Inter"],
+              "label-code": ["JetBrains Mono"],
+              "headline-lg": ["Inter"],
+              "headline-sm": ["Inter"],
+              "body-md": ["Inter"],
+            },
+            fontSize: {
+              "headline-md": [
+                "24px",
+                {
+                  lineHeight: "1.4",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "600",
+                },
+              ],
+              "headline-lg-mobile": [
+                "28px",
+                { lineHeight: "1.3", fontWeight: "700" },
+              ],
+              "body-lg": ["16px", { lineHeight: "1.7", fontWeight: "400" }],
+              "label-code": ["13px", { lineHeight: "1.5", fontWeight: "500" }],
+              "headline-lg": [
+                "32px",
+                {
+                  lineHeight: "1.4",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              "headline-sm": ["18px", { lineHeight: "1.5", fontWeight: "600" }],
+              "body-md": ["14px", { lineHeight: "1.7", fontWeight: "400" }],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .glow-line {
+        filter: drop-shadow(0 0 4px #29a195);
+      }
+      .canvas-bg {
+        background-image: radial-gradient(
+          circle at 2px 2px,
+          #3e4850 1px,
+          transparent 0
+        );
+        background-size: 40px 40px;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-background text-on-surface font-body-md selection:bg-primary-container selection:text-on-primary-container"
+  >
+    <!-- TopNavBar -->
+    <header
+      class="fixed top-0 z-50 w-full bg-surface-dim/80 backdrop-blur-md border-b border-outline-variant"
+    >
+      <nav
+        class="flex justify-between items-center w-full px-md py-xs max-w-container-max mx-auto"
+      >
+        <div class="flex items-center gap-md">
+          <a
+            class="text-headline-md font-headline-md font-bold text-primary tracking-tight"
+            href="index.html"
+            >BackendTree</a
+          >
+          <div class="hidden md:flex items-center gap-sm">
+            <a
+              class="text-primary font-bold border-b-2 border-primary pb-1 text-body-md font-body-md"
+              href="roadmap.html"
+              >Roadmap</a
+            >
+            <a
+              class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200 text-body-md font-body-md"
+              href="resources.html"
+              >Resources</a
+            >
+            <a
+              class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200 text-body-md font-body-md"
+              href="#"
+              >Community</a
+            >
+          </div>
+        </div>
+        <div class="flex items-center gap-sm">
+          <div
+            class="hidden lg:flex bg-surface-container px-sm py-xs rounded-lg border border-outline-variant items-center gap-xs"
+          >
+            <span class="material-symbols-outlined text-on-surface-variant"
+              >search</span
+            >
+            <input
+              class="bg-transparent border-none focus:ring-0 text-body-md text-on-surface w-48"
+              placeholder="기술 스택 검색..."
+              type="text"
+            />
+          </div>
+          <div class="flex items-center gap-xs">
+            <button
+              class="p-xs text-on-surface-variant hover:text-primary transition-transform active:scale-90"
+            >
+              <span class="material-symbols-outlined">notifications</span>
+            </button>
+            <button
+              class="p-xs text-on-surface-variant hover:text-primary transition-transform active:scale-90"
+            >
+              <span class="material-symbols-outlined">settings</span>
+            </button>
+          </div>
+          <button
+            class="bg-primary text-on-primary px-md py-xs rounded-lg font-bold transition-transform active:scale-90"
+          >
+            Sign In
+          </button>
+        </div>
+      </nav>
+    </header>
+    <main class="pt-20">
+      <!-- Hero Section -->
+      <section
+        class="relative overflow-hidden min-h-[819px] flex items-center justify-center py-xl px-md canvas-bg"
+      >
+        <!-- 3D Abstract Background Placeholder -->
+        <div class="absolute inset-0 z-0 opacity-40">
+          <img
+            class="w-full h-full object-cover"
+            data-alt="A sprawling 3D digital technology tree visualization with glowing teal and emerald nodes. The structure resembles a complex network of logic gates and server racks connected by luminous fiber optic lines. Set against a deep slate charcoal background, the lighting is cinematic with soft blue volumetric fog and sharp highlights on metallic edges. The overall mood is futuristic, professional, and intellectually stimulating."
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAUbcNVD5zK5LIYpfdvs2eyGRrNTEqYS4cvx_n6GXw8Kjy8Je2QwMfi-hH4Oif7pCVpW6S9KK9qQKjq0eX8ckAWEMij_KZ9-8XXoEXesSTnUgOPPKe7eURWIsGqFE628wHJrnm51yc3GB-4n6rJZCKdCX31sq4z-asqey5od41AwK_3f1Qk4amlgrdcPCkU7UJOSHbaT_klpPl0qlqBBTK6ycQvWy7yEttreKrT0EiBR5W-Ksf-y7k-1c6JAcs0S7Nnqh0pT6Y1jTj"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background"
+          ></div>
+        </div>
+        <div class="relative z-10 text-center max-w-4xl mx-auto space-y-md">
+          <div
+            class="inline-flex items-center gap-xs bg-secondary-container/20 text-secondary px-sm py-xs rounded-full border border-secondary/30 mb-md"
+          >
+            <span class="material-symbols-outlined text-[18px]">verified</span>
+            <span class="text-label-code font-label-code"
+              >대한민국 No.1 백엔드 기술 로드맵</span
+            >
+          </div>
+          <h1
+            class="text-headline-lg-mobile md:text-headline-lg font-headline-lg text-on-surface leading-tight"
+          >
+            백엔드 개발의 정점까지,<br />당신의
+            <span class="text-primary">길잡이</span>가 되어드립니다.
+          </h1>
+          <p
+            class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl mx-auto"
+          >
+            논리적인 구조와 전문성을 바탕으로 설계된 기술 트리를 통해,
+            주니어에서 시니어까지의 성장 경로를 시각화하고 정복하세요.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-sm justify-center pt-md">
+            <button
+              class="bg-primary text-on-primary px-xl py-md rounded-xl font-bold text-headline-sm transition-all hover:scale-105 active:scale-95 shadow-lg shadow-primary/20"
+            >
+              Start Roadmap
+            </button>
+            <button
+              class="bg-surface-container-high text-on-surface px-xl py-md rounded-xl font-bold text-headline-sm border border-outline-variant transition-all hover:bg-surface-container-highest"
+            >
+              기술 스택 탐색
+            </button>
+          </div>
+        </div>
+      </section>
+      <!-- Progress Preview Bento Grid -->
+      <section class="py-xl max-w-container-max mx-auto px-md">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-md">
+          <!-- Large Status Card -->
+          <div
+            class="lg:col-span-8 bg-surface-container-low border border-outline-variant p-lg rounded-xl flex flex-col justify-between group hover:border-secondary transition-all"
+          >
+            <div>
+              <div class="flex justify-between items-start mb-lg">
+                <div>
+                  <h3 class="text-headline-md font-headline-md text-on-surface">
+                    현재 학습 현황
+                  </h3>
+                  <p class="text-on-surface-variant font-body-md mt-base">
+                    Intermediate 레벨까지 65% 달성 중입니다.
+                  </p>
+                </div>
+                <div class="text-secondary text-headline-lg font-headline-lg">
+                  65%
+                </div>
+              </div>
+              <!-- Progress Path Visualization -->
+              <div
+                class="relative h-32 w-full flex items-center justify-between px-md"
+              >
+                <div
+                  class="absolute left-0 right-0 h-[2px] bg-outline-variant top-1/2 -translate-y-1/2"
+                ></div>
+                <div
+                  class="absolute left-0 h-[2px] bg-secondary glow-line top-1/2 -translate-y-1/2 w-[65%]"
+                ></div>
+                <div class="relative flex flex-col items-center gap-xs">
+                  <div
+                    class="w-8 h-8 rounded-full bg-secondary border-4 border-secondary-container flex items-center justify-center"
+                  >
+                    <span
+                      class="material-symbols-outlined text-[16px] text-on-secondary"
+                      style="font-variation-settings: &quot;FILL&quot; 1"
+                      >check</span
+                    >
+                  </div>
+                  <span class="text-label-code font-label-code text-secondary"
+                    >Beginner</span
+                  >
+                </div>
+                <div class="relative flex flex-col items-center gap-xs">
+                  <div
+                    class="w-8 h-8 rounded-full bg-background border-4 border-secondary-container flex items-center justify-center"
+                  >
+                    <div
+                      class="w-2 h-2 rounded-full bg-secondary animate-pulse"
+                    ></div>
+                  </div>
+                  <span class="text-label-code font-label-code text-on-surface"
+                    >Intermediate</span
+                  >
+                </div>
+                <div class="relative flex flex-col items-center gap-xs">
+                  <div
+                    class="w-8 h-8 rounded-full bg-background border-4 border-outline-variant flex items-center justify-center"
+                  ></div>
+                  <span
+                    class="text-label-code font-label-code text-on-surface-variant"
+                    >Senior</span
+                  >
+                </div>
+              </div>
+            </div>
+            <button
+              class="mt-lg flex items-center gap-xs text-secondary font-bold hover:underline"
+            >
+              전체 리포트 확인하기
+              <span class="material-symbols-outlined">arrow_forward</span>
+            </button>
+          </div>
+          <!-- Trending Stats Small Card -->
+          <div
+            class="lg:col-span-4 bg-surface-container-highest border border-outline-variant p-lg rounded-xl space-y-md"
+          >
+            <h3 class="text-headline-sm font-headline-sm text-on-surface">
+              금주의 인기 기술
+            </h3>
+            <div class="space-y-sm">
+              <div
+                class="flex items-center justify-between p-sm bg-surface-container rounded-lg border border-outline-variant"
+              >
+                <div class="flex items-center gap-sm">
+                  <div
+                    class="w-10 h-10 rounded bg-blue-900/30 flex items-center justify-center"
+                  >
+                    <img
+                      alt="Go"
+                      class="w-6 h-6"
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcBiwutwQ_XXwddjfxyPEwnSJoL0cTmz1cP-zWD_g0MGVM7vE8yGuCwC6R-TQgLcmk0epRsZZpjBuD9ydvCMRgQ9XCkMDPwVVzHvU08oGE3wl4ThiDonwietkh72zX1NFlgGZKBuvjKPY3dUxXVdY29Vg5RNsM9SvdN7mqOLwtcrELBcqZaHiNdtyvNgQ3X08GY5_-RByNro7CNmG5XO6HO2Dutkw1E2Mqcsw8hQCL87a8JM0ywi5U6fAJLF6VgRxXZsRq1cBL8QI1"
+                    />
+                  </div>
+                  <span class="font-headline-sm text-on-surface">Go</span>
+                </div>
+                <span class="text-secondary font-bold">+12%</span>
+              </div>
+              <div
+                class="flex items-center justify-between p-sm bg-surface-container rounded-lg border border-outline-variant"
+              >
+                <div class="flex items-center gap-sm">
+                  <div
+                    class="w-10 h-10 rounded bg-orange-900/30 flex items-center justify-center"
+                  >
+                    <img
+                      alt="Rust"
+                      class="w-6 h-6 invert"
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuBI03U_LLYme9KNz4x0xIZyLch6tOhsm1J1LNpYdwwEZK19EVmh9GDRVNuJsZq2IitkOu6L8kTg3T2YG8iKEBM3PyPfecjczoGwRl-wYXLD7ps_AMMSsjUmaatdtj92_83ZmxqUa3LN5NmjMILOenMBuz_9dWanVYCiMejlQ87ljD1_Cxql1qO80N4B0kWkDhLXjDehmtFZ_BJuMxrU80hPPczFCx2ePic4fXX84DOYOjg7-2Y8lMUDaeykhec2AOMtxYfLYrllN9ac"
+                    />
+                  </div>
+                  <span class="font-headline-sm text-on-surface">Rust</span>
+                </div>
+                <span class="text-secondary font-bold">+8%</span>
+              </div>
+              <div
+                class="flex items-center justify-between p-sm bg-surface-container rounded-lg border border-outline-variant"
+              >
+                <div class="flex items-center gap-sm">
+                  <div
+                    class="w-10 h-10 rounded bg-blue-500/20 flex items-center justify-center"
+                  >
+                    <img
+                      alt="K8s"
+                      class="w-6 h-6"
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeuj0nVo9iXlMXEUNAtvlhuppdZFJVKrlS_ORyfdtgSGLmmoWHnfSRwdswpNrZWdeUapCrpZyq8tMC7A0jqXsS6luLERu1xIfmS-biCamNSt5Aal9KYWX70jyF2q7L7oDYqNb5RNqsCSBTbwPHqinAljDjEomTWU96P24g5twH5gjdxYDY8az941ifRDhGilroo2lndufHM34NBSvNKocPte3Z9bjENeMA5qNEIEhrjZkuyX5NBKhnGuyqAfwy9d0i_I1jH7Juyuo7"
+                    />
+                  </div>
+                  <span class="font-headline-sm text-on-surface"
+                    >Kubernetes</span
+                  >
+                </div>
+                <span class="text-secondary font-bold">+15%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Top 3 Trending Section (Detailed) -->
+      <section class="py-xl bg-surface-container-lowest">
+        <div class="max-w-container-max mx-auto px-md">
+          <div
+            class="flex flex-col md:flex-row justify-between items-end mb-xl gap-md"
+          >
+            <div>
+              <h2 class="text-headline-lg font-headline-lg text-on-surface">
+                트렌딩 기술 스택
+              </h2>
+              <p class="text-on-surface-variant font-body-md mt-xs max-w-xl">
+                업계에서 가장 수요가 높은 세 가지 기술을 심층 분석합니다. 지금
+                바로 로드맵에 추가하여 학습을 시작하세요.
+              </p>
+            </div>
+            <button
+              class="text-primary font-bold flex items-center gap-xs border border-primary px-md py-xs rounded-lg hover:bg-primary/10 transition-colors"
+            >
+              전체 기술 보기
+              <span class="material-symbols-outlined">grid_view</span>
+            </button>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+            <!-- Go Card -->
+            <div
+              class="bg-surface-container-low border border-outline-variant rounded-xl overflow-hidden group hover:-translate-y-2 transition-transform duration-300"
+            >
+              <div class="h-48 overflow-hidden">
+                <img
+                  class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  data-alt="A clean, abstract architectural visualization of high-performance backend systems using Gopher-themed design elements. The style is minimalist with a palette of soft teals and slate grays, featuring isometric server illustrations and network diagrams. Professional lighting with subtle gradients suggests a reliable, industrial-grade software environment."
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9uRs8lJO8uVR7qpyLTfy8mmIg4Hs-VsoG6X5I-ou3xLFJu08238Y0dbTXm5hIU1Vg2Z-qA2oHdT5TA6RztGC_JqS-SKWhLLYzapGrJzd2kEyXvh3Bjrr8LCLUDMRn_oVJxWRaR5PZdcKtx8MAtWoPcsHDyxnkl7UXqUNhYBOKXsFbYD-pVbhxbPTSfotgn63BsL6UO6l4JG6M5i69iWUrzsDGdtAPiD_XPtkmkrioWwrIq8d2B1o-KCb18ltdp1H02Xg7-cfmQNHS"
+                />
+              </div>
+              <div class="p-lg space-y-sm">
+                <div class="flex justify-between items-center">
+                  <span
+                    class="text-label-code font-label-code text-secondary border border-secondary px-xs py-1 rounded"
+                    >#CloudNative</span
+                  >
+                  <span
+                    class="material-symbols-outlined text-on-surface-variant"
+                    >bolt</span
+                  >
+                </div>
+                <h4 class="text-headline-md font-headline-md text-on-surface">
+                  Go Language
+                </h4>
+                <p class="text-body-md font-body-md text-on-surface-variant">
+                  동시성 처리와 마이크로서비스 아키텍처의 표준입니다.
+                </p>
+                <div
+                  class="pt-sm border-t border-outline-variant flex justify-between items-center"
+                >
+                  <span class="text-body-md font-bold text-on-surface"
+                    >12개 노드</span
+                  >
+                  <button class="text-primary font-bold">노드 보기</button>
+                </div>
+              </div>
+            </div>
+            <!-- Rust Card -->
+            <div
+              class="bg-surface-container-low border border-outline-variant rounded-xl overflow-hidden group hover:-translate-y-2 transition-transform duration-300"
+            >
+              <div class="h-48 overflow-hidden">
+                <img
+                  class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  data-alt="A conceptual 3D artwork representing memory safety and extreme performance. Sharp metallic gears and interlocking emerald-green crystal structures represent the Rust programming language's robustness. The background is a dark, atmospheric laboratory setting with subtle light rays hitting focused areas. The visual style is premium, tech-heavy, and emphasizes precision."
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUMuElc8kD9t09EyTDqh83_yFsL8HYO_TdC9QJEcTbrvtE-q35DwbE07YKP_feb4e6LN9Olh73-lQwG0dl5uKYjmMbpxorY8U4CyejOOgxhvqvtUciuJ6ztGhRC7BuBSjartvVtA_TrlnlSxUA6CcAqY6EZ7zXlaA5g8vh3amQRomq7oXknukEsp7--3N89Xobz-DIxyMxNZyCj8NUEGPnMN-4n1ZF0NfDPFQ641umpBEXQSkCq4wfxSW8aXOUdmFMGoZnPN9Gmz_e"
+                />
+              </div>
+              <div class="p-lg space-y-sm">
+                <div class="flex justify-between items-center">
+                  <span
+                    class="text-label-code font-label-code text-secondary border border-secondary px-xs py-1 rounded"
+                    >#SystemProgramming</span
+                  >
+                  <span
+                    class="material-symbols-outlined text-on-surface-variant"
+                    >shield</span
+                  >
+                </div>
+                <h4 class="text-headline-md font-headline-md text-on-surface">
+                  Rust
+                </h4>
+                <p class="text-body-md font-body-md text-on-surface-variant">
+                  메모리 안전성과 극강의 성능을 보장하는 차세대 언어입니다.
+                </p>
+                <div
+                  class="pt-sm border-t border-outline-variant flex justify-between items-center"
+                >
+                  <span class="text-body-md font-bold text-on-surface"
+                    >15개 노드</span
+                  >
+                  <button class="text-primary font-bold">노드 보기</button>
+                </div>
+              </div>
+            </div>
+            <!-- K8s Card -->
+            <div
+              class="bg-surface-container-low border border-outline-variant rounded-xl overflow-hidden group hover:-translate-y-2 transition-transform duration-300"
+            >
+              <div class="h-48 overflow-hidden">
+                <img
+                  class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  data-alt="A futuristic data center visualization with hundreds of interconnected containers glowing in vibrant blue and teal. The scene represents Kubernetes orchestration, featuring a master control hub sending pulses of light to various worker nodes. The perspective is dynamic, looking up from a low angle to emphasize scale and complexity. High-tech, clean, and extremely professional aesthetic."
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkfk2nzuVJcHVRo2XBlKWj0EeYMqCkyHC7LkS3vvt-FeKe_We1DT5Wf3Cit9CsF5NNFx2ZchKi35sfVs_banMozDMDtB4GcFWu2mlXwrhlzzhu3AEaJceqFJ0osumjHI70XiFbqL0c3UQ2WlUtWdByBIfFy971Ku78QkHezMrJpvPmwjAi5Q-_lY9C54yZ9uOtp7SwuSv-T21sBTv9UX3AwW9j6q-x3oTRqZXGamZWGdijRtJ_8eSRNLcHtldw8tDrr5Cg5C0IIGds"
+                />
+              </div>
+              <div class="p-lg space-y-sm">
+                <div class="flex justify-between items-center">
+                  <span
+                    class="text-label-code font-label-code text-secondary border border-secondary px-xs py-1 rounded"
+                    >#DevOps</span
+                  >
+                  <span
+                    class="material-symbols-outlined text-on-surface-variant"
+                    >cloud</span
+                  >
+                </div>
+                <h4 class="text-headline-md font-headline-md text-on-surface">
+                  Kubernetes
+                </h4>
+                <p class="text-body-md font-body-md text-on-surface-variant">
+                  컨테이너 오케스트레이션의 정점이며 대규모 인프라의 핵심입니다.
+                </p>
+                <div
+                  class="pt-sm border-t border-outline-variant flex justify-between items-center"
+                >
+                  <span class="text-body-md font-bold text-on-surface"
+                    >18개 노드</span
+                  >
+                  <button class="text-primary font-bold">노드 보기</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Final CTA -->
+      <section class="py-xl max-w-container-max mx-auto px-md">
+        <div
+          class="relative bg-primary-container rounded-[2rem] p-xl overflow-hidden flex flex-col items-center text-center gap-md"
+        >
+          <div class="absolute inset-0 opacity-10 pointer-events-none">
+            <div class="w-full h-full canvas-bg"></div>
+          </div>
+          <h2
+            class="text-headline-lg font-headline-lg text-on-primary-container"
+          >
+            지금 바로 백엔드 트리를 시작하세요.
+          </h2>
+          <p
+            class="text-body-lg font-body-lg text-on-primary-container/80 max-w-2xl"
+          >
+            무료로 개인 맞춤형 로드맵을 생성하고, 동료들과 함께 성장하는
+            커뮤니티의 일원이 되세요. 지식의 끝은 성장의 시작입니다.
+          </p>
+          <button
+            class="bg-on-primary-container text-primary-container px-xl py-md rounded-xl font-extrabold text-headline-sm transition-all hover:scale-105 active:scale-95 shadow-2xl"
+          >
+            Get Started Free
+          </button>
+        </div>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-surface-container-lowest border-t border-outline-variant">
+      <div
+        class="w-full py-lg px-md flex flex-col md:flex-row justify-between items-center max-w-container-max mx-auto gap-md"
+      >
+        <div class="flex flex-col items-center md:items-start gap-xs">
+          <span
+            class="text-headline-sm font-headline-sm font-bold text-on-surface"
+            >BackendTree</span
+          >
+          <p class="text-on-surface-variant text-body-md font-body-md">
+            © 2024 BackendTree. Built for Developers.
+          </p>
+        </div>
+        <div class="flex flex-wrap justify-center gap-md">
+          <a
+            class="text-on-surface-variant hover:text-primary transition-all underline text-body-md"
+            href="#"
+            >Sitemap</a
+          >
+          <a
+            class="text-on-surface-variant hover:text-primary transition-all underline text-body-md"
+            href="#"
+            >Privacy Policy</a
+          >
+          <a
+            class="text-on-surface-variant hover:text-primary transition-all underline text-body-md"
+            href="#"
+            >Terms of Service</a
+          >
+          <a
+            class="text-on-surface-variant hover:text-primary transition-all underline text-label-code font-label-code"
+            href="#"
+            >Github</a
+          >
+        </div>
+      </div>
+    </footer>
+    <script>
+      // Micro-interaction: Smooth hover states and logic for nodes (simulated)
+      document.querySelectorAll(".group").forEach((card) => {
+        card.addEventListener("mouseenter", () => {
+          // Background subtle movement logic could go here
+        });
+      });
+    </script>
+  </body>
+</html>

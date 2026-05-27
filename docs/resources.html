@@ -1,0 +1,775 @@
+<!doctype html>
+
+<html class="dark" lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-dim": "#0f1418",
+              "on-secondary-container": "#00302b",
+              tertiary: "#d0bcff",
+              "error-container": "#93000a",
+              "on-tertiary-fixed-variant": "#5516be",
+              "on-primary-container": "#003751",
+              "surface-bright": "#353a3e",
+              "surface-container-low": "#171c20",
+              "on-tertiary-fixed": "#23005c",
+              secondary: "#6bd8cb",
+              error: "#ffb4ab",
+              "on-primary-fixed-variant": "#004c6e",
+              "surface-container": "#1b2024",
+              "surface-container-highest": "#30353a",
+              "surface-container-high": "#252b2f",
+              "on-surface": "#dee3e9",
+              "on-secondary-fixed": "#00201d",
+              "primary-container": "#0ea5e9",
+              "on-secondary-fixed-variant": "#005049",
+              "secondary-container": "#29a195",
+              "inverse-surface": "#dee3e9",
+              "on-primary": "#00344d",
+              "surface-variant": "#30353a",
+              "inverse-primary": "#006591",
+              "primary-fixed-dim": "#89ceff",
+              "secondary-fixed": "#89f5e7",
+              "on-secondary": "#003732",
+              "on-error": "#690005",
+              "outline-variant": "#3e4850",
+              background: "#0f1418",
+              surface: "#0f1418",
+              "on-error-container": "#ffdad6",
+              "secondary-fixed-dim": "#6bd8cb",
+              "tertiary-container": "#a986ff",
+              "primary-fixed": "#c9e6ff",
+              "surface-container-lowest": "#0a0f13",
+              "tertiary-fixed": "#e9ddff",
+              "on-tertiary-container": "#3e0097",
+              "tertiary-fixed-dim": "#d0bcff",
+              "on-tertiary": "#3c0091",
+              primary: "#89ceff",
+              outline: "#88929b",
+              "on-primary-fixed": "#001e2f",
+              "on-background": "#dee3e9",
+              "inverse-on-surface": "#2c3135",
+              "surface-tint": "#89ceff",
+              "on-surface-variant": "#bec8d2",
+            },
+            borderRadius: {
+              DEFAULT: "0.125rem",
+              lg: "0.25rem",
+              xl: "0.5rem",
+              full: "0.75rem",
+            },
+            spacing: {
+              "container-max": "1280px",
+              md: "24px",
+              xl: "64px",
+              base: "4px",
+              xs: "8px",
+              gutter: "20px",
+              lg: "40px",
+              sm: "16px",
+            },
+            fontFamily: {
+              "headline-md": ["Inter"],
+              "headline-lg-mobile": ["Inter"],
+              "body-lg": ["Inter"],
+              "label-code": ["JetBrains Mono"],
+              "headline-lg": ["Inter"],
+              "headline-sm": ["Inter"],
+              "body-md": ["Inter"],
+            },
+            fontSize: {
+              "headline-md": [
+                "24px",
+                {
+                  lineHeight: "1.4",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "600",
+                },
+              ],
+              "headline-lg-mobile": [
+                "28px",
+                { lineHeight: "1.3", fontWeight: "700" },
+              ],
+              "body-lg": ["16px", { lineHeight: "1.7", fontWeight: "400" }],
+              "label-code": ["13px", { lineHeight: "1.5", fontWeight: "500" }],
+              "headline-lg": [
+                "32px",
+                {
+                  lineHeight: "1.4",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              "headline-sm": ["18px", { lineHeight: "1.5", fontWeight: "600" }],
+              "body-md": ["14px", { lineHeight: "1.7", fontWeight: "400" }],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      .tech-glow {
+        box-shadow: 0 0 15px -3px rgba(107, 216, 203, 0.2);
+      }
+      .node-path {
+        background-image: radial-gradient(
+          circle at 2px 2px,
+          #3e4850 1px,
+          transparent 0
+        );
+        background-size: 24px 24px;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-background text-on-surface font-body-md selection:bg-primary/30"
+  >
+    <!-- TopNavBar -->
+    <header
+      class="bg-surface-dim/80 backdrop-blur-md border-b border-outline-variant sticky top-0 z-50"
+    >
+      <div
+        class="flex justify-between items-center w-full px-md py-xs max-w-container-max mx-auto"
+      >
+        <div class="flex items-center gap-xl">
+          <a
+            class="text-headline-md font-headline-md font-bold text-primary tracking-tight"
+            href="index.html"
+            >BackendTree</a
+          >
+          <nav class="hidden md:flex gap-md">
+            <a
+              class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200"
+              href="roadmap.html"
+              >Roadmap</a
+            >
+            <a
+              class="text-primary font-bold border-b-2 border-primary pb-1"
+              href="resources.html"
+              >Resources</a
+            >
+            <a
+              class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200"
+              href="#"
+              >Community</a
+            >
+          </nav>
+        </div>
+        <div class="flex items-center gap-sm">
+          <div class="relative hidden sm:block">
+            <span
+              class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant"
+              >search</span
+            >
+            <input
+              class="bg-surface-container-high border-none rounded-xl pl-10 pr-4 py-2 text-body-md focus:ring-2 focus:ring-primary w-64 transition-all"
+              placeholder="기술 스택 검색..."
+              type="text"
+            />
+          </div>
+          <button
+            class="material-symbols-outlined text-on-surface-variant p-2 hover:bg-surface-container-highest rounded-full transition-colors"
+          >
+            notifications
+          </button>
+          <button
+            class="material-symbols-outlined text-on-surface-variant p-2 hover:bg-surface-container-highest rounded-full transition-colors"
+          >
+            settings
+          </button>
+          <button
+            class="bg-primary text-on-primary font-bold px-md py-2 rounded-xl scale-95 active:scale-90 transition-transform"
+          >
+            Sign In
+          </button>
+        </div>
+      </div>
+    </header>
+    <main
+      class="min-h-screen max-w-container-max mx-auto px-md py-xl node-path"
+    >
+      <!-- Header Section -->
+      <section class="mb-xl">
+        <h1 class="text-headline-lg font-headline-lg text-on-surface mb-xs">
+          학습 리소스 라이브러리
+        </h1>
+        <p class="text-on-surface-variant text-body-lg max-w-2xl">
+          백엔드 개발의 정점에 도달하기 위해 엄선된 공식 문서, 강의 및 도서를
+          탐색하세요. 지식 트리의 각 노드를 완성하기 위한 필수 가이드입니다.
+        </p>
+      </section>
+      <!-- Filter Bar -->
+      <div
+        class="flex flex-wrap items-center gap-sm mb-lg sticky top-[72px] z-40 bg-background/90 py-4 backdrop-blur-sm"
+      >
+        <button
+          class="px-md py-2 rounded-full border border-primary bg-primary/10 text-primary font-bold text-body-md"
+        >
+          전체
+        </button>
+        <button
+          class="px-md py-2 rounded-full border border-outline-variant text-on-surface-variant hover:border-primary hover:text-primary transition-all"
+        >
+          공식 문서
+        </button>
+        <button
+          class="px-md py-2 rounded-full border border-outline-variant text-on-surface-variant hover:border-primary hover:text-primary transition-all"
+        >
+          온라인 강의
+        </button>
+        <button
+          class="px-md py-2 rounded-full border border-outline-variant text-on-surface-variant hover:border-primary hover:text-primary transition-all"
+        >
+          전문 서적
+        </button>
+        <div class="h-6 w-px bg-outline-variant mx-2"></div>
+        <button
+          class="px-md py-2 rounded-full border border-outline-variant text-on-surface-variant hover:bg-surface-container-highest transition-all flex items-center gap-xs"
+        >
+          <span class="material-symbols-outlined text-[18px]">filter_list</span>
+          기술 태그 필터
+        </button>
+      </div>
+      <!-- Resource Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-lg">
+        <!-- Category Header: Official Docs -->
+        <div class="col-span-full mt-md">
+          <h2
+            class="text-headline-sm font-headline-sm flex items-center gap-sm text-secondary"
+          >
+            <span class="material-symbols-outlined">menu_book</span>
+            공식 문서 (Official Docs)
+          </h2>
+        </div>
+        <!-- Card: MDN -->
+        <div
+          class="bg-surface-container border border-outline-variant rounded-xl p-md group hover:border-secondary hover:-translate-y-1 transition-all duration-300 tech-glow"
+        >
+          <div class="flex justify-between items-start mb-md">
+            <div
+              class="w-12 h-12 rounded-lg bg-surface-container-highest flex items-center justify-center"
+            >
+              <span class="material-symbols-outlined text-secondary text-[32px]"
+                >html</span
+              >
+            </div>
+            <span
+              class="text-label-code font-label-code text-on-secondary-container bg-secondary-container px-2 py-1 rounded"
+              >Web Standard</span
+            >
+          </div>
+          <h3 class="text-headline-sm font-headline-sm mb-xs">MDN Web Docs</h3>
+          <p class="text-on-surface-variant text-body-md mb-md">
+            웹 기술과 웹을 구축하는 소프트웨어를 위한 전 세계적인 표준
+            문서입니다. HTTP, Web APIs 등 백엔드 필수 지식을 포함합니다.
+          </p>
+          <a
+            class="flex items-center gap-xs text-secondary font-bold hover:underline"
+            href="#"
+          >
+            방문하기
+            <span class="material-symbols-outlined text-[16px]"
+              >open_in_new</span
+            >
+          </a>
+        </div>
+        <!-- Card: Oracle Java -->
+        <div
+          class="bg-surface-container border border-outline-variant rounded-xl p-md group hover:border-secondary hover:-translate-y-1 transition-all duration-300 tech-glow"
+        >
+          <div class="flex justify-between items-start mb-md">
+            <div
+              class="w-12 h-12 rounded-lg bg-surface-container-highest flex items-center justify-center"
+            >
+              <span class="material-symbols-outlined text-secondary text-[32px]"
+                >coffee</span
+              >
+            </div>
+            <span
+              class="text-label-code font-label-code text-on-secondary-container bg-secondary-container px-2 py-1 rounded"
+              >Java Ecosystem</span
+            >
+          </div>
+          <h3 class="text-headline-sm font-headline-sm mb-xs">
+            Oracle Java Documentation
+          </h3>
+          <p class="text-on-surface-variant text-body-md mb-md">
+            엔터프라이즈 백엔드의 핵심인 Java 언어와 JVM 명세에 대한 가장 신뢰할
+            수 있는 정보를 제공합니다.
+          </p>
+          <a
+            class="flex items-center gap-xs text-secondary font-bold hover:underline"
+            href="#"
+          >
+            방문하기
+            <span class="material-symbols-outlined text-[16px]"
+              >open_in_new</span
+            >
+          </a>
+        </div>
+        <!-- Card: Python.org -->
+        <div
+          class="bg-surface-container border border-outline-variant rounded-xl p-md group hover:border-secondary hover:-translate-y-1 transition-all duration-300 tech-glow"
+        >
+          <div class="flex justify-between items-start mb-md">
+            <div
+              class="w-12 h-12 rounded-lg bg-surface-container-highest flex items-center justify-center"
+            >
+              <span class="material-symbols-outlined text-secondary text-[32px]"
+                >terminal</span
+              >
+            </div>
+            <span
+              class="text-label-code font-label-code text-on-secondary-container bg-secondary-container px-2 py-1 rounded"
+              >Pythonic</span
+            >
+          </div>
+          <h3 class="text-headline-sm font-headline-sm mb-xs">
+            Python.org Docs
+          </h3>
+          <p class="text-on-surface-variant text-body-md mb-md">
+            데이터 분석 및 가벼운 백엔드 API 서버 구축을 위한 Python 언어의 공식
+            레퍼런스입니다.
+          </p>
+          <a
+            class="flex items-center gap-xs text-secondary font-bold hover:underline"
+            href="#"
+          >
+            방문하기
+            <span class="material-symbols-outlined text-[16px]"
+              >open_in_new</span
+            >
+          </a>
+        </div>
+        <!-- Category Header: Curated Courses -->
+        <div class="col-span-full mt-xl">
+          <h2
+            class="text-headline-sm font-headline-sm flex items-center gap-sm text-primary"
+          >
+            <span class="material-symbols-outlined">smart_display</span>
+            엄선된 강의 (Curated Courses)
+          </h2>
+        </div>
+        <!-- Card: Udemy -->
+        <div
+          class="bg-surface-container-low border border-outline-variant rounded-xl overflow-hidden group hover:border-primary transition-all"
+        >
+          <div class="aspect-video relative overflow-hidden">
+            <img
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              data-alt="A cinematic, high-contrast shot of a software developer's workspace with multiple glowing monitors displaying complex backend code and architectural diagrams. The lighting is dominated by deep cyan and electric blue hues, creating a sophisticated and professional atmosphere. The focus is sharp on the lines of code, symbolizing modern online learning and professional growth."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_kLiigdruB9SfbQh8sLE-vbzLewMRttXBeGUL3gvnIlIlseX80bOVajm5WVuUmBEpVwm2GzPt7_VKDdvnprGQu43VinibSDUl2QOKPVlXoZXAEhOKKvbrJ-Rp5do_RPfqeLHg7h5QH6-zO6JkumObikynpH9HR5xaU05IRlVu2sq9hkDGTBknUSDbQ19vVkYZNmYVb61aXueOa1Af8i3y2XagjAdVusgqkEy2X50MsIh6DQZ2BFGk0NHqkH6U_0F1Db0DgCCTkFzg"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-surface-container-low to-transparent opacity-60"
+            ></div>
+          </div>
+          <div class="p-md">
+            <div class="flex items-center gap-xs mb-xs">
+              <span
+                class="bg-primary/10 text-primary text-[10px] px-2 py-0.5 rounded font-bold uppercase"
+                >Udemy</span
+              >
+            </div>
+            <h3 class="text-headline-sm font-headline-sm mb-xs">
+              Spring Boot Master Class
+            </h3>
+            <p class="text-on-surface-variant text-body-md mb-md">
+              기초부터 실전 마이크로서비스 아키텍처(MSA)까지 다루는 종합
+              강의입니다.
+            </p>
+            <div class="flex items-center justify-between">
+              <span class="text-label-code text-on-surface-variant"
+                >#Spring #Java #MSA</span
+              >
+              <button class="material-symbols-outlined text-primary">
+                arrow_forward
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Card: Coursera -->
+        <div
+          class="bg-surface-container-low border border-outline-variant rounded-xl overflow-hidden group hover:border-primary transition-all"
+        >
+          <div class="aspect-video relative overflow-hidden">
+            <img
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              data-alt="A clean and minimal digital visualization of a distributed system architecture on a dark slate background. Vibrant nodes connected by glowing lines of light represent servers and database clusters. The aesthetic is inspired by high-end educational platforms, featuring a teal and primary blue color palette that conveys intelligence and structure."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0qjlDsI9rMqKokSy8CvWJDRKcaeKUmA5bib6JiqD808RySv4eV0PK3iaMLVh8IJAY5S0f7vFERBIMibe80hpYsR8wSw9nj0Pmfel0rL3reQ7MNhXEBCHFh-ACbN3cGle6gITStkJ_sbDTf8D8wGZtvkZpHH9xfB2jZdB2MoRIJr7k-TUbwYPbAbA6Us8uxeSuhRUfZ5QOy-mJDDZ9zCvVFzRe0eXDsxGfErlEwjzwFRKisH6_nQYL2K4yRaBg5siMpo2QZY0JlmKw"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-surface-container-low to-transparent opacity-60"
+            ></div>
+          </div>
+          <div class="p-md">
+            <div class="flex items-center gap-xs mb-xs">
+              <span
+                class="bg-primary/10 text-primary text-[10px] px-2 py-0.5 rounded font-bold uppercase"
+                >Coursera</span
+              >
+            </div>
+            <h3 class="text-headline-sm font-headline-sm mb-xs">
+              Google Cloud Architecture
+            </h3>
+            <p class="text-on-surface-variant text-body-md mb-md">
+              구글 엔지니어들이 직접 강의하는 클라우드 인프라 설계의 정석입니다.
+            </p>
+            <div class="flex items-center justify-between">
+              <span class="text-label-code text-on-surface-variant"
+                >#GCP #Infrastructure</span
+              >
+              <button class="material-symbols-outlined text-primary">
+                arrow_forward
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Card: Inflearn -->
+        <div
+          class="bg-surface-container-low border border-outline-variant rounded-xl overflow-hidden group hover:border-primary transition-all"
+        >
+          <div class="aspect-video relative overflow-hidden">
+            <img
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              data-alt="A close-up shot of a high-quality mechanical keyboard and a high-resolution screen showing an IDE with a dark theme. The scene is illuminated by soft, moody neon lights that highlight the textures of the desk. The overall mood is focused and academic, emphasizing the depth of knowledge required for backend engineering in a modern tech environment."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYLd3S-SOg-MX9DIos6O4U_ENj8Dgeq-OTWDCfMfdq6h_BXdX9q2UoZ6gSnrQEEONo4V6Y-9CCYCHdlQB6Kn6kqqqXJWb-vJlLhMvhlYjIU2ZjEai9vjHzGNx63_u3BA1ptR2wStXP0QZCqkpZYqNVINp4hGjwteTIVlHu3-DuAV1V6BfX4WD0Hqq4u2FfzMkhc83_q5izzlh_BvtvhQMPS8FF_-62R7nogCFSsXu949VnUoW60dzv0RPznhOcCdrcc3mJVBGcQQaN"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-surface-container-low to-transparent opacity-60"
+            ></div>
+          </div>
+          <div class="p-md">
+            <div class="flex items-center gap-xs mb-xs">
+              <span
+                class="bg-primary/10 text-primary text-[10px] px-2 py-0.5 rounded font-bold uppercase"
+                >Inflearn</span
+              >
+            </div>
+            <h3 class="text-headline-sm font-headline-sm mb-xs">
+              자바 ORM 표준 JPA 프로그래밍
+            </h3>
+            <p class="text-on-surface-variant text-body-md mb-md">
+              국내 최고 전문가가 알려주는 데이터베이스 매핑과 영속성 계층의 모든
+              것.
+            </p>
+            <div class="flex items-center justify-between">
+              <span class="text-label-code text-on-surface-variant"
+                >#JPA #Hibernate #SQL</span
+              >
+              <button class="material-symbols-outlined text-primary">
+                arrow_forward
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Category Header: Recommended Books -->
+        <div class="col-span-full mt-xl">
+          <h2
+            class="text-headline-sm font-headline-sm flex items-center gap-sm text-tertiary"
+          >
+            <span class="material-symbols-outlined">auto_stories</span>
+            전문 서적 (Recommended Books)
+          </h2>
+        </div>
+        <!-- Book Card: Clean Code -->
+        <div
+          class="bg-surface-container p-md border-l-4 border-tertiary flex gap-md items-center rounded-r-xl hover:bg-surface-container-high transition-colors cursor-pointer"
+        >
+          <div
+            class="w-20 h-28 bg-surface-container-highest shrink-0 shadow-lg flex items-center justify-center border border-outline-variant"
+          >
+            <span class="material-symbols-outlined text-tertiary/40 text-[48px]"
+              >book</span
+            >
+          </div>
+          <div>
+            <h3 class="text-headline-sm font-headline-sm mb-xs">Clean Code</h3>
+            <p class="text-body-md text-on-surface-variant line-clamp-2">
+              가독성 높은 코드를 작성하는 기술. 모든 시니어 개발자가 거쳐야 할
+              필독서입니다.
+            </p>
+            <div class="mt-xs flex items-center gap-base">
+              <span
+                class="material-symbols-outlined text-[14px] text-tertiary"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >star</span
+              >
+              <span
+                class="material-symbols-outlined text-[14px] text-tertiary"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >star</span
+              >
+              <span
+                class="material-symbols-outlined text-[14px] text-tertiary"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >star</span
+              >
+              <span
+                class="material-symbols-outlined text-[14px] text-tertiary"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >star</span
+              >
+              <span
+                class="material-symbols-outlined text-[14px] text-tertiary"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >star</span
+              >
+            </div>
+          </div>
+        </div>
+        <!-- Book Card: Refactoring -->
+        <div
+          class="bg-surface-container p-md border-l-4 border-tertiary flex gap-md items-center rounded-r-xl hover:bg-surface-container-high transition-colors cursor-pointer"
+        >
+          <div
+            class="w-20 h-28 bg-surface-container-highest shrink-0 shadow-lg flex items-center justify-center border border-outline-variant"
+          >
+            <span class="material-symbols-outlined text-tertiary/40 text-[48px]"
+              >library_books</span
+            >
+          </div>
+          <div>
+            <h3 class="text-headline-sm font-headline-sm mb-xs">Refactoring</h3>
+            <p class="text-body-md text-on-surface-variant line-clamp-2">
+              기존 코드를 개선하여 디자인을 향상시키는 방법론의 정석입니다.
+            </p>
+            <div class="mt-xs flex items-center gap-base">
+              <span
+                class="material-symbols-outlined text-[14px] text-tertiary"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >star</span
+              >
+              <span
+                class="material-symbols-outlined text-[14px] text-tertiary"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >star</span
+              >
+              <span
+                class="material-symbols-outlined text-[14px] text-tertiary"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >star</span
+              >
+              <span
+                class="material-symbols-outlined text-[14px] text-tertiary"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >star</span
+              >
+              <span
+                class="material-symbols-outlined text-[14px] text-tertiary"
+                style="font-variation-settings: &quot;FILL&quot; 0"
+                >star</span
+              >
+            </div>
+          </div>
+        </div>
+        <!-- Book Card: DDIA -->
+        <div
+          class="bg-surface-container p-md border-l-4 border-tertiary flex gap-md items-center rounded-r-xl hover:bg-surface-container-high transition-colors cursor-pointer"
+        >
+          <div
+            class="w-20 h-28 bg-surface-container-highest shrink-0 shadow-lg flex items-center justify-center border border-outline-variant"
+          >
+            <span class="material-symbols-outlined text-tertiary/40 text-[48px]"
+              >storage</span
+            >
+          </div>
+          <div>
+            <h3 class="text-headline-sm font-headline-sm mb-xs">
+              Data-Intensive Applications
+            </h3>
+            <p class="text-body-md text-on-surface-variant line-clamp-2">
+              대규모 데이터 기반 시스템을 설계하기 위한 신뢰할 수 있고 확장
+              가능한 원칙들.
+            </p>
+            <div class="mt-xs flex items-center gap-base">
+              <span
+                class="material-symbols-outlined text-[14px] text-tertiary"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >star</span
+              >
+              <span
+                class="material-symbols-outlined text-[14px] text-tertiary"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >star</span
+              >
+              <span
+                class="material-symbols-outlined text-[14px] text-tertiary"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >star</span
+              >
+              <span
+                class="material-symbols-outlined text-[14px] text-tertiary"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >star</span
+              >
+              <span
+                class="material-symbols-outlined text-[14px] text-tertiary"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >star</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Pagination / Load More -->
+      <div class="mt-xl flex justify-center">
+        <button
+          class="group flex items-center gap-sm px-xl py-md bg-surface-container-highest border border-outline-variant rounded-full text-headline-sm hover:border-primary transition-all active:scale-95"
+        >
+          더 많은 리소스 불러오기
+          <span
+            class="material-symbols-outlined group-hover:rotate-180 transition-transform duration-500"
+            >expand_more</span
+          >
+        </button>
+      </div>
+    </main>
+    <!-- SideNavBar (Progress) - Desktop Only Overlay Concept -->
+    <aside
+      class="fixed right-md top-1/2 -translate-y-1/2 hidden xl:flex flex-col gap-sm w-64 bg-surface-container-low border border-outline-variant rounded-xl p-md shadow-2xl z-40"
+    >
+      <div class="flex items-center gap-sm mb-sm">
+        <div
+          class="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center"
+        >
+          <span class="material-symbols-outlined text-secondary"
+            >trending_up</span
+          >
+        </div>
+        <div>
+          <h4 class="text-headline-sm font-bold">학습 진행도</h4>
+          <p class="text-label-code text-on-surface-variant">65% 완료</p>
+        </div>
+      </div>
+      <div
+        class="w-full bg-surface-container-highest h-2 rounded-full overflow-hidden"
+      >
+        <div class="bg-secondary h-full w-[65%]"></div>
+      </div>
+      <ul class="mt-md space-y-xs">
+        <li
+          class="flex items-center justify-between text-body-md text-on-surface"
+        >
+          <span class="flex items-center gap-xs"
+            ><span
+              class="material-symbols-outlined text-emerald-400 text-[18px]"
+              style="font-variation-settings: &quot;FILL&quot; 1"
+              >check_circle</span
+            >
+            초급</span
+          >
+          <span class="font-bold">100%</span>
+        </li>
+        <li
+          class="flex items-center justify-between text-body-md text-on-surface"
+        >
+          <span class="flex items-center gap-xs"
+            ><span class="material-symbols-outlined text-secondary text-[18px]"
+              >motion_photos_on</span
+            >
+            중급</span
+          >
+          <span class="font-bold">42%</span>
+        </li>
+        <li
+          class="flex items-center justify-between text-body-md text-on-surface-variant opacity-50"
+        >
+          <span class="flex items-center gap-xs"
+            ><span class="material-symbols-outlined text-[18px]">lock</span>
+            시니어</span
+          >
+          <span class="font-bold">0%</span>
+        </li>
+      </ul>
+      <button
+        class="mt-md w-full py-2 bg-secondary text-on-secondary font-bold rounded-lg hover:brightness-110 transition-all"
+      >
+        학습 리포트 확인
+      </button>
+    </aside>
+    <!-- Footer -->
+    <footer
+      class="bg-surface-container-lowest border-t border-outline-variant mt-xl"
+    >
+      <div
+        class="w-full py-lg px-md flex flex-col md:flex-row justify-between items-center max-w-container-max mx-auto gap-md"
+      >
+        <div class="flex flex-col gap-xs items-center md:items-start">
+          <div
+            class="text-headline-sm font-headline-sm font-bold text-on-surface"
+          >
+            BackendTree
+          </div>
+          <p class="text-on-surface-variant text-body-md">
+            © 2024 BackendTree. Built for Developers.
+          </p>
+        </div>
+        <div class="flex gap-xl text-label-code font-label-code">
+          <a
+            class="text-on-surface-variant hover:text-primary underline transition-all"
+            href="#"
+            >Sitemap</a
+          >
+          <a
+            class="text-on-surface-variant hover:text-primary underline transition-all"
+            href="#"
+            >Privacy Policy</a
+          >
+          <a
+            class="text-on-surface-variant hover:text-primary underline transition-all"
+            href="#"
+            >Terms of Service</a
+          >
+          <a
+            class="text-on-surface-variant hover:text-primary underline transition-all flex items-center gap-xs"
+            href="#"
+          >
+            Github
+            <span class="material-symbols-outlined text-[16px]">terminal</span>
+          </a>
+        </div>
+      </div>
+    </footer>
+    <script>
+      // Micro-interaction for filter tags
+      const filters = document.querySelectorAll("button.rounded-full.border");
+      filters.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          filters.forEach((b) => {
+            b.classList.remove("bg-primary/10", "text-primary", "font-bold");
+            b.classList.add("text-on-surface-variant");
+          });
+          btn.classList.add("bg-primary/10", "text-primary", "font-bold");
+          btn.classList.remove("text-on-surface-variant");
+        });
+      });
+    </script>
+  </body>
+</html>
