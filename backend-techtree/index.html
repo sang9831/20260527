@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>백엔드 개발자 취업용 테크트리</title>
+  <meta name="description" content="백엔드 개발자 취업 준비를 위한 기술 학습 로드맵과 포트폴리오 체크리스트를 한눈에 볼 수 있는 테크트리 웹사이트입니다." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="hero-shell">
+    <nav class="navbar navbar-expand-lg navbar-dark py-3">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="#top">Backend Tree</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#siteNav" aria-controls="siteNav" aria-expanded="false" aria-label="내비게이션 열기">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="siteNav">
+          <div class="navbar-nav ms-auto gap-lg-3">
+            <a class="nav-link" href="#roadmap">로드맵</a>
+            <a class="nav-link" href="#skills">핵심 스킬</a>
+            <a class="nav-link" href="#portfolio">포트폴리오</a>
+            <a class="nav-link" href="#plan">학습 플랜</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section class="container py-5" id="top">
+      <div class="row align-items-center gy-4">
+        <div class="col-lg-7">
+          <span class="eyebrow">취업 준비용 백엔드 테크트리</span>
+          <h1 class="display-4 fw-black text-white mt-3 mb-3">백엔드 개발자 취업까지의 학습 경로를 한 장으로 정리합니다</h1>
+          <p class="lead text-white-50 mb-4">
+            기초 언어, 데이터베이스, API 설계, 배포까지 이어지는 실전 중심 로드맵입니다.
+            각 단계에서 무엇을 먼저 익혀야 하는지, 포트폴리오에는 무엇을 보여줘야 하는지 명확하게 확인할 수 있습니다.
+          </p>
+          <div class="d-flex flex-wrap gap-3">
+            <a class="btn btn-primary btn-lg px-4" href="#roadmap">로드맵 보기</a>
+            <a class="btn btn-outline-light btn-lg px-4" href="#plan">학습 플랜 보기</a>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="hero-card">
+            <div class="hero-card__top">
+              <span class="badge rounded-pill text-bg-light text-dark">권장 학습 기간</span>
+              <strong>3 ~ 6개월</strong>
+            </div>
+            <div class="hero-stat-grid mt-4">
+              <article class="stat-box">
+                <span>기초</span>
+                <strong>언어 / 자료구조</strong>
+              </article>
+              <article class="stat-box">
+                <span>핵심</span>
+                <strong>Spring / DB / API</strong>
+              </article>
+              <article class="stat-box">
+                <span>실전</span>
+                <strong>배포 / 테스트 / 협업</strong>
+              </article>
+              <article class="stat-box">
+                <span>결과물</span>
+                <strong>포트폴리오 2개 이상</strong>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </header>
+
+  <main>
+    <section class="section-gap" id="roadmap">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-kicker">Roadmap</span>
+          <h2 class="section-title">단계별 테크트리</h2>
+          <p class="section-copy">백엔드 취업 준비를 초기, 중기, 실전 단계로 나누어 우선순위를 분명하게 잡습니다.</p>
+        </div>
+
+        <div class="btn-group filter-group mb-4" role="group" aria-label="학습 단계 필터">
+          <button type="button" class="btn btn-filter active" data-filter="all" id="filterAll">전체</button>
+          <button type="button" class="btn btn-filter" data-filter="foundation" id="filterFoundation">기초</button>
+          <button type="button" class="btn btn-filter" data-filter="core" id="filterCore">핵심</button>
+          <button type="button" class="btn btn-filter" data-filter="practice" id="filterPractice">실전</button>
+        </div>
+
+        <div class="row g-4" id="roadmapGrid">
+          <div class="col-md-6 col-xl-3 roadmap-item" data-stage="foundation">
+            <article class="roadmap-card">
+              <span class="roadmap-step">01</span>
+              <h3>언어 기초</h3>
+              <p>Java 기준 문법, 객체지향, 컬렉션, 예외 처리, 람다와 스트림을 정리합니다.</p>
+              <ul class="roadmap-list">
+                <li>문법과 제어 흐름</li>
+                <li>객체지향 설계 원칙</li>
+                <li>컬렉션과 제네릭</li>
+              </ul>
+            </article>
+          </div>
+          <div class="col-md-6 col-xl-3 roadmap-item" data-stage="foundation">
+            <article class="roadmap-card">
+              <span class="roadmap-step">02</span>
+              <h3>CS 기초</h3>
+              <p>네트워크, 운영체제, 자료구조, 알고리즘의 최소 합격선을 확보합니다.</p>
+              <ul class="roadmap-list">
+                <li>HTTP, DNS, TCP/IP</li>
+                <li>프로세스와 스레드</li>
+                <li>정렬, 탐색, 해시</li>
+              </ul>
+            </article>
+          </div>
+          <div class="col-md-6 col-xl-3 roadmap-item" data-stage="core">
+            <article class="roadmap-card">
+              <span class="roadmap-step">03</span>
+              <h3>백엔드 프레임워크</h3>
+              <p>Spring Boot로 REST API, 계층 구조, 의존성 주입, 예외 핸들링을 다룹니다.</p>
+              <ul class="roadmap-list">
+                <li>Controller / Service / Repository</li>
+                <li>Validation / Security</li>
+                <li>로그와 에러 처리</li>
+              </ul>
+            </article>
+          </div>
+          <div class="col-md-6 col-xl-3 roadmap-item" data-stage="core">
+            <article class="roadmap-card">
+              <span class="roadmap-step">04</span>
+              <h3>데이터베이스</h3>
+              <p>관계형 모델, 인덱스, 트랜잭션, 정규화, 성능 개선 포인트를 학습합니다.</p>
+              <ul class="roadmap-list">
+                <li>MySQL / PostgreSQL</li>
+                <li>쿼리 튜닝과 인덱스</li>
+                <li>트랜잭션과 격리 수준</li>
+              </ul>
+            </article>
+          </div>
+          <div class="col-md-6 col-xl-3 roadmap-item" data-stage="practice">
+            <article class="roadmap-card">
+              <span class="roadmap-step">05</span>
+              <h3>실전 API</h3>
+              <p>인증, 권한, 페이징, 검색, 파일 업로드가 포함된 서비스형 API를 만듭니다.</p>
+              <ul class="roadmap-list">
+                <li>JWT / OAuth 개념</li>
+                <li>DTO 설계</li>
+                <li>RESTful 규칙</li>
+              </ul>
+            </article>
+          </div>
+          <div class="col-md-6 col-xl-3 roadmap-item" data-stage="practice">
+            <article class="roadmap-card">
+              <span class="roadmap-step">06</span>
+              <h3>테스트와 품질</h3>
+              <p>단위 테스트, 통합 테스트, 테스트 코드 작성 습관을 포트폴리오에 반영합니다.</p>
+              <ul class="roadmap-list">
+                <li>JUnit / Mockito</li>
+                <li>API 문서화</li>
+                <li>리팩터링 기준</li>
+              </ul>
+            </article>
+          </div>
+          <div class="col-md-6 col-xl-3 roadmap-item" data-stage="practice">
+            <article class="roadmap-card">
+              <span class="roadmap-step">07</span>
+              <h3>배포와 운영</h3>
+              <p>Docker, CI/CD, 모니터링, 클라우드 배포 경험으로 실무 감각을 보여줍니다.</p>
+              <ul class="roadmap-list">
+                <li>Docker / Compose</li>
+                <li>GitHub Actions</li>
+                <li>Cloud Deploy</li>
+              </ul>
+            </article>
+          </div>
+          <div class="col-md-6 col-xl-3 roadmap-item" data-stage="practice">
+            <article class="roadmap-card">
+              <span class="roadmap-step">08</span>
+              <h3>면접 대비</h3>
+              <p>프로젝트 설명, 트러블슈팅, 설계 근거를 정리해 질문에 즉답할 수 있게 준비합니다.</p>
+              <ul class="roadmap-list">
+                <li>회고 문서 작성</li>
+                <li>기술 선택 이유 정리</li>
+                <li>면접 예상 질문</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-gap section-alt" id="skills">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-kicker">Skills</span>
+          <h2 class="section-title">취업 시장에서 자주 보는 핵심 스킬</h2>
+          <p class="section-copy">단순히 기술명을 아는 수준이 아니라, 어떤 역할을 할 수 있는지까지 연결해야 합니다.</p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-4">
+            <article class="skill-card">
+              <h3>필수</h3>
+              <p>Java, Spring Boot, SQL, Git, Linux, HTTP</p>
+              <div class="chip-list">
+                <span class="chip">언어</span>
+                <span class="chip">프레임워크</span>
+                <span class="chip">DB</span>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-4">
+            <article class="skill-card">
+              <h3>차별화</h3>
+              <p>Redis, Kafka, Query Optimization, Test Automation, Docker</p>
+              <div class="chip-list">
+                <span class="chip">캐시</span>
+                <span class="chip">비동기</span>
+                <span class="chip">배포</span>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-4">
+            <article class="skill-card">
+              <h3>증명</h3>
+              <p>README, ERD, API 문서, 장애 대응 기록, 성능 측정 결과</p>
+              <div class="chip-list">
+                <span class="chip">문서화</span>
+                <span class="chip">회고</span>
+                <span class="chip">지표</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-gap" id="portfolio">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-kicker">Portfolio</span>
+          <h2 class="section-title">포트폴리오에 들어가야 할 것</h2>
+          <p class="section-copy">채용자는 기능보다 문제 해결력을 봅니다. 기능 목록과 설계 이유를 함께 보여주세요.</p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-lg-6">
+            <div class="accordion custom-accordion" id="portfolioAccordion">
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="projectOneHeading">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#projectOne" aria-expanded="true" aria-controls="projectOne">
+                    프로젝트 1: 사용자 중심 서비스
+                  </button>
+                </h3>
+                <div id="projectOne" class="accordion-collapse collapse show" aria-labelledby="projectOneHeading" data-bs-parent="#portfolioAccordion">
+                  <div class="accordion-body">
+                    회원가입, 로그인, 검색, 좋아요, 댓글처럼 기본적인 서비스 흐름을 완성하고, 인증과 예외 처리까지 포함합니다.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="projectTwoHeading">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#projectTwo" aria-expanded="false" aria-controls="projectTwo">
+                    프로젝트 2: 성능과 확장성 중심
+                  </button>
+                </h3>
+                <div id="projectTwo" class="accordion-collapse collapse" aria-labelledby="projectTwoHeading" data-bs-parent="#portfolioAccordion">
+                  <div class="accordion-body">
+                    캐시 적용, 쿼리 최적화, 비동기 처리, 배치 작업 같은 운영 관점 요소를 넣어 한 단계 더 깊은 설계를 보여줍니다.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="projectThreeHeading">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#projectThree" aria-expanded="false" aria-controls="projectThree">
+                    프로젝트 3: 협업과 배포 중심
+                  </button>
+                </h3>
+                <div id="projectThree" class="accordion-collapse collapse" aria-labelledby="projectThreeHeading" data-bs-parent="#portfolioAccordion">
+                  <div class="accordion-body">
+                    Git 브랜치 전략, 코드 리뷰 규칙, Docker 기반 배포, CI 파이프라인을 통해 협업 역량을 설명합니다.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="checklist-panel">
+              <h3>제출 전 체크리스트</h3>
+              <ul class="checklist-list">
+                <li>README에 서비스 목적과 실행 방법이 있는가</li>
+                <li>ERD와 API 문서가 함께 제공되는가</li>
+                <li>예외 처리와 검증 로직이 정리되어 있는가</li>
+                <li>테스트 코드가 최소 핵심 로직을 커버하는가</li>
+                <li>배포 URL과 데모 계정이 명시되어 있는가</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-gap section-alt" id="plan">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-kicker">Plan</span>
+          <h2 class="section-title">8주 학습 플랜</h2>
+          <p class="section-copy">짧게 집중해서 결과를 만드는 일정입니다. 매주 결과물을 남기는 방식으로 진행하세요.</p>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <span class="timeline-week">1-2주</span>
+            <div>
+              <h3>언어와 CS 기초</h3>
+              <p>Java 문법, OOP, HTTP, 네트워크, 자료구조를 정리하고 작은 예제 코드를 만들어 봅니다.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-week">3-4주</span>
+            <div>
+              <h3>Spring Boot와 DB</h3>
+              <p>CRUD API, JPA, 트랜잭션, 예외 처리, Validation을 학습해 기본 서비스 구조를 만듭니다.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-week">5-6주</span>
+            <div>
+              <h3>실전 기능 확장</h3>
+              <p>인증, 검색, 페이징, 캐시, 파일 업로드, 테스트 코드, 문서화를 추가합니다.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-week">7-8주</span>
+            <div>
+              <h3>배포와 지원 준비</h3>
+              <p>Docker와 배포 설정을 정리하고, 이력서와 면접 답변 자료를 최종 보완합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer-shell">
+    <div class="container py-4">
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
+        <p class="mb-0">백엔드 개발자 취업용 테크트리</p>
+        <p class="mb-0 text-white-50">Bootstrap 기반 반응형 정적 웹사이트</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

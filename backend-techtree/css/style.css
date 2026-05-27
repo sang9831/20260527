@@ -1,0 +1,431 @@
+:root {
+  --color-bg: #07111f;
+  --color-surface: #0d1b31;
+  --color-surface-soft: #112645;
+  --color-primary: #6cabdd;
+  --color-secondary: #00205b;
+  --color-accent: #8fe3ff;
+  --color-text: #f5f8ff;
+  --color-muted: rgba(245, 248, 255, 0.72);
+  --color-border: rgba(255, 255, 255, 0.1);
+  --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.28);
+  --radius-xl: 28px;
+  --radius-lg: 20px;
+  --radius-md: 16px;
+  --font-heading: "Noto Sans KR", "Inter", sans-serif;
+  --font-body: "Inter", "Noto Sans KR", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background:
+    radial-gradient(circle at top left, rgba(108, 171, 221, 0.22), transparent 34%),
+    radial-gradient(circle at top right, rgba(143, 227, 255, 0.12), transparent 30%),
+    linear-gradient(180deg, #07111f 0%, #0a1628 55%, #09111d 100%);
+}
+
+a {
+  text-decoration: none;
+}
+
+.hero-shell {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, rgba(0, 32, 91, 0.96), rgba(7, 17, 31, 0.95)),
+    radial-gradient(circle at 20% 20%, rgba(108, 171, 221, 0.32), transparent 28%);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.hero-shell::before,
+.hero-shell::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(30px);
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.hero-shell::before {
+  width: 240px;
+  height: 240px;
+  background: rgba(108, 171, 221, 0.35);
+  top: 2rem;
+  right: 5%;
+}
+
+.hero-shell::after {
+  width: 180px;
+  height: 180px;
+  background: rgba(143, 227, 255, 0.18);
+  bottom: 3rem;
+  left: 8%;
+}
+
+.navbar {
+  position: relative;
+  z-index: 1;
+}
+
+.navbar-brand,
+.nav-link {
+  color: var(--color-text) !important;
+}
+
+.nav-link {
+  opacity: 0.85;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  opacity: 1;
+}
+
+.eyebrow,
+.section-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--color-accent);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.display-4,
+.section-title,
+.roadmap-card h3,
+.skill-card h3,
+.checklist-panel h3,
+.timeline-item h3 {
+  font-family: var(--font-heading);
+}
+
+.fw-black {
+  font-weight: 900;
+}
+
+.hero-card,
+.roadmap-card,
+.skill-card,
+.checklist-panel,
+.timeline-item {
+  border: 1px solid var(--color-border);
+  background: rgba(13, 27, 49, 0.84);
+  box-shadow: var(--shadow-lg);
+  backdrop-filter: blur(16px);
+}
+
+.hero-card {
+  border-radius: var(--radius-xl);
+  padding: 1.5rem;
+}
+
+.hero-card__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  color: var(--color-text);
+}
+
+.hero-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.stat-box {
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.stat-box span {
+  display: block;
+  color: var(--color-muted);
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+}
+
+.stat-box strong {
+  color: var(--color-text);
+}
+
+.section-gap {
+  padding: 5rem 0;
+}
+
+.section-alt {
+  background: rgba(255, 255, 255, 0.02);
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.section-heading {
+  margin-bottom: 2rem;
+  max-width: 760px;
+}
+
+.section-title {
+  margin-top: 1rem;
+  margin-bottom: 0.75rem;
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.section-copy {
+  color: var(--color-muted);
+  font-size: 1.05rem;
+  margin-bottom: 0;
+}
+
+.filter-group {
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.btn-filter {
+  color: var(--color-text);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px !important;
+  padding: 0.7rem 1.2rem;
+}
+
+.btn-filter:hover,
+.btn-filter:focus,
+.btn-filter.active {
+  color: #08111d;
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.btn-primary {
+  --bs-btn-color: #08111d;
+  --bs-btn-bg: var(--color-accent);
+  --bs-btn-border-color: var(--color-accent);
+  --bs-btn-hover-color: #08111d;
+  --bs-btn-hover-bg: #b1ecff;
+  --bs-btn-hover-border-color: #b1ecff;
+  --bs-btn-focus-shadow-rgb: 143, 227, 255;
+  --bs-btn-active-color: #08111d;
+  --bs-btn-active-bg: #7fd6f0;
+  --bs-btn-active-border-color: #7fd6f0;
+}
+
+.btn-outline-light {
+  --bs-btn-color: var(--color-text);
+  --bs-btn-border-color: rgba(255, 255, 255, 0.5);
+  --bs-btn-hover-color: #08111d;
+  --bs-btn-hover-bg: var(--color-text);
+  --bs-btn-hover-border-color: var(--color-text);
+  --bs-btn-focus-shadow-rgb: 245, 248, 255;
+}
+
+.roadmap-card {
+  height: 100%;
+  border-radius: var(--radius-xl);
+  padding: 1.5rem;
+  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+
+.roadmap-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(143, 227, 255, 0.4);
+  background: rgba(17, 38, 69, 0.94);
+}
+
+.roadmap-step {
+  display: inline-flex;
+  width: 3rem;
+  height: 3rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  color: #06101c;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--color-accent), var(--color-primary));
+}
+
+.roadmap-card h3 {
+  color: var(--color-text);
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.roadmap-card p,
+.accordion-body,
+.timeline-item p,
+.checklist-list {
+  color: var(--color-muted);
+}
+
+.roadmap-list {
+  padding-left: 1rem;
+  margin: 0;
+  color: var(--color-text);
+}
+
+.roadmap-list li + li {
+  margin-top: 0.45rem;
+}
+
+.skill-card,
+.checklist-panel {
+  border-radius: var(--radius-xl);
+  padding: 1.5rem;
+  height: 100%;
+}
+
+.skill-card h3,
+.checklist-panel h3 {
+  color: var(--color-text);
+  margin-bottom: 0.75rem;
+}
+
+.skill-card p {
+  color: var(--color-muted);
+  margin-bottom: 1rem;
+}
+
+.chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(108, 171, 221, 0.14);
+  color: var(--color-accent);
+  border: 1px solid rgba(143, 227, 255, 0.16);
+  font-size: 0.9rem;
+}
+
+.custom-accordion .accordion-item {
+  border: 1px solid var(--color-border);
+  background: rgba(13, 27, 49, 0.78);
+  border-radius: 1.25rem !important;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.custom-accordion .accordion-button {
+  background: transparent;
+  color: var(--color-text);
+  font-weight: 700;
+  box-shadow: none;
+}
+
+.custom-accordion .accordion-button:not(.collapsed) {
+  background: rgba(108, 171, 221, 0.08);
+  color: var(--color-text);
+}
+
+.custom-accordion .accordion-button::after {
+  filter: brightness(0) invert(1);
+}
+
+.custom-accordion .accordion-body {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.checklist-list {
+  margin-bottom: 0;
+  padding-left: 1.1rem;
+}
+
+.checklist-list li + li {
+  margin-top: 0.75rem;
+}
+
+.timeline {
+  position: relative;
+  display: grid;
+  gap: 1rem;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 1.65rem;
+  top: 1rem;
+  bottom: 1rem;
+  width: 2px;
+  background: linear-gradient(180deg, rgba(143, 227, 255, 0.8), rgba(108, 171, 221, 0.1));
+}
+
+.timeline-item {
+  position: relative;
+  border-radius: var(--radius-xl);
+  padding: 1.4rem 1.4rem 1.4rem 4.5rem;
+}
+
+.timeline-week {
+  position: absolute;
+  left: 0.8rem;
+  top: 1.2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: #07111f;
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.footer-shell {
+  border-top: 1px solid var(--color-border);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.roadmap-item.is-hidden {
+  display: none;
+}
+
+@media (max-width: 991.98px) {
+  .hero-shell {
+    padding-bottom: 1rem;
+  }
+
+  .hero-card {
+    margin-top: 0.5rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .section-gap {
+    padding: 4rem 0;
+  }
+
+  .hero-stat-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline::before {
+    left: 1.25rem;
+  }
+
+  .timeline-item {
+    padding-left: 3.7rem;
+  }
+}

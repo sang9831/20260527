@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>알고리즘 · 자료구조 테크트리</title>
+  <meta name="description" content="알고리즘과 자료구조를 단계별로 정리한 테크트리 웹사이트입니다. 취업 준비와 코딩테스트 대비를 위한 실전 로드맵을 제공합니다." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="hero-shell">
+    <nav class="navbar navbar-expand-lg navbar-dark py-3 sticky-top nav-glass">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="#top">Algo Tree</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#siteNav" aria-controls="siteNav" aria-expanded="false" aria-label="내비게이션 열기">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="siteNav">
+          <div class="navbar-nav ms-auto gap-lg-3">
+            <a class="nav-link" href="#roadmap">로드맵</a>
+            <a class="nav-link" href="#categories">분류</a>
+            <a class="nav-link" href="#practice">실전</a>
+            <a class="nav-link" href="#plan">12주 플랜</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section class="container py-5" id="top">
+      <div class="row align-items-center gy-4 py-lg-4">
+        <div class="col-lg-7">
+          <span class="eyebrow">Vibrant Tech Design</span>
+          <h1 class="display-4 fw-bold text-white mt-3 mb-3">알고리즘과 자료구조를 취업 수준까지 체계적으로 정리합니다</h1>
+          <p class="lead text-white-50 mb-4">
+            코딩테스트 빈출 주제, 핵심 개념, 풀이 전략, 실전 복기까지 한 화면에서 이어지는
+            테크트리입니다. 기초부터 면접용 설명까지 연결되도록 설계했습니다.
+          </p>
+          <div class="d-flex flex-wrap gap-3">
+            <a class="btn btn-primary btn-lg px-4" href="#roadmap">테크트리 보기</a>
+            <a class="btn btn-outline-light btn-lg px-4" href="#plan">학습 플랜 보기</a>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="hero-panel">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <span class="badge text-bg-info-subtle rounded-pill hero-badge">코딩테스트 준비</span>
+              <span class="text-white-50 small">추천 기간 12주</span>
+            </div>
+            <div class="hero-metrics">
+              <article class="metric-card">
+                <span>기초</span>
+                <strong>복잡도 / 구현</strong>
+              </article>
+              <article class="metric-card">
+                <span>중심</span>
+                <strong>자료구조 / 탐색</strong>
+              </article>
+              <article class="metric-card">
+                <span>고급</span>
+                <strong>그래프 / DP</strong>
+              </article>
+              <article class="metric-card">
+                <span>실전</span>
+                <strong>모의고사 / 복기</strong>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </header>
+
+  <main>
+    <section class="section-gap" id="roadmap">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-kicker">Roadmap</span>
+          <h2 class="section-title">학습 테크트리</h2>
+          <p class="section-copy">기초 개념을 건너뛰지 않고, 취업과 코딩테스트에서 바로 활용할 수 있는 순서로 배치했습니다.</p>
+        </div>
+
+        <div class="btn-group filter-group mb-4" role="group" aria-label="학습 단계 필터">
+          <button type="button" class="btn btn-filter active" data-filter="all" id="filterAll">전체</button>
+          <button type="button" class="btn btn-filter" data-filter="basics" id="filterBasics">기초</button>
+          <button type="button" class="btn btn-filter" data-filter="structures" id="filterStructures">자료구조</button>
+          <button type="button" class="btn btn-filter" data-filter="algorithms" id="filterAlgorithms">알고리즘</button>
+          <button type="button" class="btn btn-filter" data-filter="practice" id="filterPractice">실전</button>
+        </div>
+
+        <div class="row g-4" id="roadmapGrid">
+          <div class="col-md-6 col-xl-3 roadmap-item" data-stage="basics">
+            <article class="roadmap-card">
+              <span class="roadmap-step">01</span>
+              <h3>복잡도 분석</h3>
+              <p>시간 복잡도, 공간 복잡도, 빅오 표기를 읽고 풀이 선택 기준을 세웁니다.</p>
+              <ul>
+                <li>최악/평균/최선</li>
+                <li>입력 크기 감각</li>
+                <li>제한 조건 해석</li>
+              </ul>
+            </article>
+          </div>
+          <div class="col-md-6 col-xl-3 roadmap-item" data-stage="basics">
+            <article class="roadmap-card">
+              <span class="roadmap-step">02</span>
+              <h3>구현과 시뮬레이션</h3>
+              <p>문제 조건을 코드로 옮기는 연습을 통해 실수를 줄이고 속도를 올립니다.</p>
+              <ul>
+                <li>조건 분기</li>
+                <li>문자열 처리</li>
+                <li>입출력 최적화</li>
+              </ul>
+            </article>
+          </div>
+          <div class="col-md-6 col-xl-3 roadmap-item" data-stage="structures">
+            <article class="roadmap-card">
+              <span class="roadmap-step">03</span>
+              <h3>배열과 해시</h3>
+              <p>가장 자주 쓰는 기본 자료구조를 익히고, 빠른 조회와 집계 패턴을 잡습니다.</p>
+              <ul>
+                <li>인덱스 접근</li>
+                <li>Map / Set</li>
+                <li>빈도 계산</li>
+              </ul>
+            </article>
+          </div>
+          <div class="col-md-6 col-xl-3 roadmap-item" data-stage="structures">
+            <article class="roadmap-card">
+              <span class="roadmap-step">04</span>
+              <h3>스택과 큐</h3>
+              <p>괄호 검사, BFS, 최근성 유지 같은 패턴을 빠르게 구분할 수 있게 만듭니다.</p>
+              <ul>
+                <li>후입선출 / 선입선출</li>
+                <li>Deque 활용</li>
+                <li>모니터링 패턴</li>
+              </ul>
+            </article>
+          </div>
+          <div class="col-md-6 col-xl-3 roadmap-item" data-stage="structures">
+            <article class="roadmap-card">
+              <span class="roadmap-step">05</span>
+              <h3>연결 리스트와 트리</h3>
+              <p>포인터 구조와 계층적 탐색을 이해해 복잡한 구조를 읽는 힘을 기릅니다.</p>
+              <ul>
+                <li>이진 트리</li>
+                <li>BST 개념</li>
+                <li>재귀 순회</li>
+              </ul>
+            </article>
+          </div>
+          <div class="col-md-6 col-xl-3 roadmap-item" data-stage="algorithms">
+            <article class="roadmap-card">
+              <span class="roadmap-step">06</span>
+              <h3>정렬과 이분 탐색</h3>
+              <p>정렬 기준을 다루고, 이분 탐색을 응용해 조건 만족 구간을 찾습니다.</p>
+              <ul>
+                <li>비교 기반 정렬</li>
+                <li>파라메트릭 서치</li>
+                <li>lower / upper bound</li>
+              </ul>
+            </article>
+          </div>
+          <div class="col-md-6 col-xl-3 roadmap-item" data-stage="algorithms">
+            <article class="roadmap-card">
+              <span class="roadmap-step">07</span>
+              <h3>그래프 탐색</h3>
+              <p>DFS, BFS, 최단 경로, 위상 정렬을 통해 탐색형 문제를 구조적으로 풉니다.</p>
+              <ul>
+                <li>인접 리스트</li>
+                <li>방문 처리</li>
+                <li>가중치 그래프</li>
+              </ul>
+            </article>
+          </div>
+          <div class="col-md-6 col-xl-3 roadmap-item" data-stage="algorithms">
+            <article class="roadmap-card">
+              <span class="roadmap-step">08</span>
+              <h3>동적 계획법</h3>
+              <p>점화식 작성, 상태 정의, 메모이제이션으로 반복 하위문제 최적화를 익힙니다.</p>
+              <ul>
+                <li>Top-down / Bottom-up</li>
+                <li>상태 전이</li>
+                <li>테이블 설계</li>
+              </ul>
+            </article>
+          </div>
+          <div class="col-md-6 col-xl-3 roadmap-item" data-stage="practice">
+            <article class="roadmap-card">
+              <span class="roadmap-step">09</span>
+              <h3>모의고사</h3>
+              <p>제한 시간 안에 푸는 훈련을 반복해 문제 해석 속도와 코드 작성 습관을 만듭니다.</p>
+              <ul>
+                <li>타이머 훈련</li>
+                <li>난이도 분배</li>
+                <li>정답률 추적</li>
+              </ul>
+            </article>
+          </div>
+          <div class="col-md-6 col-xl-3 roadmap-item" data-stage="practice">
+            <article class="roadmap-card">
+              <span class="roadmap-step">10</span>
+              <h3>문제 복기</h3>
+              <p>틀린 문제를 다시 설명할 수 있도록 오답 노트와 풀이 메모를 남깁니다.</p>
+              <ul>
+                <li>실수 유형 분류</li>
+                <li>대안 풀이 정리</li>
+                <li>핵심 패턴 기록</li>
+              </ul>
+            </article>
+          </div>
+          <div class="col-md-6 col-xl-3 roadmap-item" data-stage="practice">
+            <article class="roadmap-card">
+              <span class="roadmap-step">11</span>
+              <h3>설명 훈련</h3>
+              <p>왜 그 풀이를 선택했는지 말로 설명하는 연습을 통해 면접 대응력을 높입니다.</p>
+              <ul>
+                <li>핵심 아이디어</li>
+                <li>복잡도 근거</li>
+                <li>엣지 케이스</li>
+              </ul>
+            </article>
+          </div>
+          <div class="col-md-6 col-xl-3 roadmap-item" data-stage="practice">
+            <article class="roadmap-card">
+              <span class="roadmap-step">12</span>
+              <h3>실전 스프린트</h3>
+              <p>목표 회사 문제 유형을 분석해 집중 훈련하고, 지원 일정에 맞춰 마무리합니다.</p>
+              <ul>
+                <li>기업별 경향</li>
+                <li>약점 보완</li>
+                <li>최종 점검</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-gap section-alt" id="categories">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-kicker">Categories</span>
+          <h2 class="section-title">핵심 주제 분류</h2>
+          <p class="section-copy">각 주제를 독립적으로만 보지 말고, 어떤 문제 유형과 연결되는지 같이 익히는 것이 중요합니다.</p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-4">
+            <article class="info-card">
+              <h3>자료구조</h3>
+              <p>배열, 스택, 큐, 해시, 트리, 힙, 그래프를 문제 유형별로 구분합니다.</p>
+              <div class="chip-list">
+                <span class="chip">배열</span>
+                <span class="chip">트리</span>
+                <span class="chip">그래프</span>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-4">
+            <article class="info-card">
+              <h3>알고리즘</h3>
+              <p>정렬, 탐색, 분할 정복, 그리디, DP, 최단 경로를 패턴으로 익힙니다.</p>
+              <div class="chip-list">
+                <span class="chip">DP</span>
+                <span class="chip">그리디</span>
+                <span class="chip">BFS</span>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-4">
+            <article class="info-card">
+              <h3>실전 전략</h3>
+              <p>문제 읽기, 시간 배분, 디버깅, 복기, 설명까지 시험장의 흐름을 대비합니다.</p>
+              <div class="chip-list">
+                <span class="chip">복기</span>
+                <span class="chip">시간관리</span>
+                <span class="chip">면접</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-gap" id="practice">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-kicker">Practice</span>
+          <h2 class="section-title">실전 체크리스트</h2>
+        </div>
+
+        <div class="row g-4 align-items-stretch">
+          <div class="col-lg-7">
+            <div class="glass-panel h-100">
+              <h3 class="mb-4">문제 풀이 루틴</h3>
+              <div class="timeline">
+                <div class="timeline-item">
+                  <span class="timeline-week">1</span>
+                  <div>
+                    <h3>조건 파악</h3>
+                    <p>입력 범위와 제한 시간을 보고 적합한 자료구조와 알고리즘 후보를 좁힙니다.</p>
+                  </div>
+                </div>
+                <div class="timeline-item">
+                  <span class="timeline-week">2</span>
+                  <div>
+                    <h3>초안 구현</h3>
+                    <p>정답률이 높은 간단한 접근부터 코드로 옮기고, 예외 케이스를 바로 확인합니다.</p>
+                  </div>
+                </div>
+                <div class="timeline-item">
+                  <span class="timeline-week">3</span>
+                  <div>
+                    <h3>복잡도 개선</h3>
+                    <p>시간 초과가 보이면 이분 탐색, 해시, DP, 그래프 탐색 등으로 개선합니다.</p>
+                  </div>
+                </div>
+                <div class="timeline-item">
+                  <span class="timeline-week">4</span>
+                  <div>
+                    <h3>오답 복기</h3>
+                    <p>왜 틀렸는지, 어떤 패턴을 놓쳤는지 기록해서 다음 문제에서 반복하지 않도록 합니다.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <div class="glass-panel h-100">
+              <h3 class="mb-4">면접용 설명 포인트</h3>
+              <ul class="checklist-list">
+                <li>이 문제에서 어떤 자료구조를 선택했는가</li>
+                <li>시간 복잡도를 어떻게 계산했는가</li>
+                <li>실수 가능성이 높은 엣지 케이스는 무엇인가</li>
+                <li>다른 풀이와 비교했을 때 장단점은 무엇인가</li>
+                <li>코드 개선 여지가 있다면 어디인가</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-gap section-alt" id="plan">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-kicker">Plan</span>
+          <h2 class="section-title">12주 학습 플랜</h2>
+          <p class="section-copy">한 번에 많은 문제를 푸는 대신, 각 주차마다 반드시 설명 가능한 결과물을 남기도록 구성했습니다.</p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-xl-3">
+            <article class="week-card">
+              <strong>1-3주</strong>
+              <h3>기초 고정</h3>
+              <p>복잡도, 구현, 문자열, 배열, 해시를 집중적으로 다룹니다.</p>
+            </article>
+          </div>
+          <div class="col-md-6 col-xl-3">
+            <article class="week-card">
+              <strong>4-6주</strong>
+              <h3>구조 정복</h3>
+              <p>스택, 큐, 트리, 힙을 패턴 중심으로 정리합니다.</p>
+            </article>
+          </div>
+          <div class="col-md-6 col-xl-3">
+            <article class="week-card">
+              <strong>7-9주</strong>
+              <h3>알고리즘 확장</h3>
+              <p>정렬, 탐색, 그래프, 그리디, DP를 문제 유형과 연결합니다.</p>
+            </article>
+          </div>
+          <div class="col-md-6 col-xl-3">
+            <article class="week-card">
+              <strong>10-12주</strong>
+              <h3>실전 마감</h3>
+              <p>모의고사, 복기, 설명 훈련으로 채용 단계에 맞춰 마무리합니다.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer-shell">
+    <div class="container py-4">
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-2">
+        <p class="mb-0">알고리즘 · 자료구조 테크트리</p>
+        <p class="mb-0 text-white-50">DESIGN.md 기준 Vibrant Tech UI</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
