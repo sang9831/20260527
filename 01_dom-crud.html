@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM CRUD</title>
+    <script>
+      //외부 라이브러리나 dom과 관련 없을 시 사용, 의미적으로 head 메타태그 류로 넣고 싶을 때
+    </script>
+  </head>
+  <body>
+    <h1>DOM CRUD</h1>
+    <p class="dessert">버터떡</p>
+    <p class="dessert" id="dzk">두쫀쿠</p>
+    <div>
+      <p>봄동비빔밥</p>
+    </div>
+
+    <div id="container">
+      <h2>메모 등록</h2>
+      <form id="form">
+        <input id="text" />
+        <button>등록</button>
+      </form>
+      <div id="list"></div>
+    </div>
+
+    <script>
+      // 이쪽 body끝에 script를 배치
+      // 자바스크립트 -> DOM 제어 -> 화면이 다 로딩되기 전에 미리 자바스크립트가 로딩되기 시작하면 곤란..
+      // 의도적으로 DOM 트리 로딩 후에 자바스크립트 호출
+      // HTML 영역과 JS 영역을 분리하기 위함
+      //   console.log("hello dom");
+      const p1 = document.querySelector("p");
+      console.log(p1);
+
+      const p2 = document.querySelectorAll("p");
+      console.log(...p2);
+
+      // 1개 -> #id
+      const p3 = document.querySelector("#dzk");
+      console.log(p3);
+
+      // 여러개 그룹 -> .class
+      const p4 = document.querySelectorAll(".dessert");
+      console.log(...p4);
+
+      const form = document.querySelector("#form");
+      console.log(form);
+      form.addEventListener("submit", (e) => {
+        e.preventDefault(); // 기본 이벤트 금지/방지
+        const list = document.querySelector("#list");
+        console.log(list);
+        const p = document.createElement("p");
+        const text = document.querySelector("#text");
+        p.textContent = text.value;
+        list.append(p);
+      });
+    </script>
+  </body>
+</html>
