@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DevTree - 데이터베이스 로드맵</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {tertiary: "#f1ddff", "on-primary": "#003547", background: "#081326", "surface-variant": "#2b354a", "on-error-container": "#ffdad6", "inverse-primary": "#006686", "surface-container-lowest": "#040e21", primary: "#c5eaff", "secondary-fixed-dim": "#a0cde5", "surface-container-high": "#202a3e", "on-secondary-container": "#92bed7", "tertiary-fixed-dim": "#dcb8ff", "outline-variant": "#3f484e", "surface-dim": "#081326", "surface-container-highest": "#2b354a", "tertiary-fixed": "#f0dbff", "primary-fixed": "#c0e8ff", "on-primary-fixed": "#001e2b", "on-secondary": "#003548", "secondary-fixed": "#c0e8ff", "surface-tint": "#7bd1fa", "inverse-on-surface": "#263045", "surface-bright": "#2f394e", "on-surface-variant": "#bec8ce", "inverse-surface": "#d8e2fd", "error-container": "#93000a", "primary-fixed-dim": "#7bd1fa", "primary-container": "#7dd3fc", "on-secondary-fixed": "#001e2b", "tertiary-container": "#ddbaff", "on-tertiary-fixed-variant": "#59367d", outline: "#899298", "on-tertiary-container": "#66438b", "surface-container-low": "#111b2f", secondary: "#a0cde5", "on-tertiary-fixed": "#2b024f", "on-background": "#d8e2fd", "secondary-container": "#1f4e63", error: "#ffb4ab", "on-primary-container": "#005b78", "surface-container": "#151f33", surface: "#081326", "on-tertiary": "#411e65", "on-error": "#690005", "on-secondary-fixed-variant": "#1c4c60", "on-primary-fixed-variant": "#004d66", "on-surface": "#d8e2fd"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}, spacing: {"container-max": "1280px", "node-gap": "48px", "margin-mobile": "16px", gutter: "16px", unit: "8px", base: "8px", "margin-desktop": "24px"}, fontFamily: {"body-lg": ["Inter"], "body-md": ["Inter"], "headline-md": ["Inter"], "headline-lg-mobile": ["Geist"], "display-lg": ["Geist"], "label-mono": ["JetBrains Mono"], "headline-lg": ["Inter"], "label-caps": ["Inter"], "label-md": ["Inter"]}, fontSize: {"body-lg": ["16px", {lineHeight: "24px", fontWeight: "400"}], "body-md": ["14px", {lineHeight: "20px", fontWeight: "400"}], "headline-md": ["24px", {lineHeight: "32px", fontWeight: "600"}], "headline-lg-mobile": ["24px", {lineHeight: "1.2", fontWeight: "600"}], "display-lg": ["48px", {lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "700"}], "label-mono": ["14px", {lineHeight: "1.0", letterSpacing: "0.05em", fontWeight: "500"}], "headline-lg": ["32px", {lineHeight: "40px", fontWeight: "600"}], "label-caps": ["12px", {lineHeight: "1.0", letterSpacing: "0.1em", fontWeight: "700"}], "label-md": ["12px", {lineHeight: "16px", letterSpacing: "0.5px", fontWeight: "500"}]}}}};</script>
+<style>
+        body { background-color: #0b1326; color: #dae2fd; }
+        .node-line { stroke: #424754; stroke-width: 2; fill: none; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .active-glow { box-shadow: 0 0 15px rgba(173, 198, 255, 0.2); }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #0b1326; }
+        ::-webkit-scrollbar-thumb { background: #2d3449; border-radius: 10px; }
+    </style>
+</head>
+<body class="font-body-md text-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-background dark:bg-background border-b border-outline-variant dark:border-outline-variant">
+<div class="flex justify-between items-center h-16 px-gutter max-w-container-max mx-auto">
+<div class="flex items-center gap-8">
+<span class="text-headline-md font-headline-md font-bold text-primary dark:text-primary">DevTree</span>
+<nav class="hidden md:flex gap-6">
+<a class="font-label-mono text-label-mono text-primary dark:text-primary border-b-2 border-primary pb-1 transition-colors" href="#">로드맵</a>
+<a class="font-label-mono text-label-mono text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary transition-colors" href="#">대시보드</a>
+<a class="font-label-mono text-label-mono text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary transition-colors" href="#">업적</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline text-sm">search</span>
+<input class="bg-surface-container-low border border-outline-variant rounded-lg pl-10 pr-4 py-1.5 text-sm focus:outline-none focus:border-primary transition-all w-48 lg:w-64" placeholder="기술 검색..." type="text"/>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" data-icon="notifications">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" data-icon="settings">settings</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant">
+<img alt="User profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZocfu7RlyQ-qHUS7m5M1mohJBTzwIdi3EfgA9-2ORoy6km061deWqta5KcKR4D764FFXGwTHbfWpPnIYcCMTbw_eu4NxiT1cEPkxY5xiSe_iixTFvxI4P4b-8l6tZmMXLxxobmEQmJxr-qau7BY3-G3bZmdcbtOCoxM0cefHihvlJd-pi6aSOLT-kWxCbbpyErkBlhLhIuV3N-ptXzo5Zn-aFc-ZZrzNJbwKS_vxiNJbT6TkViZ3jG-Tw7accO-12NTTHQHG8VRps"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Sidebar & Main Content Wrapper -->
+<div class="pt-16 flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="hidden lg:flex flex-col border-r border-outline-variant w-64 h-[calc(100vh-64px)] fixed left-0 top-16 bg-surface-container dark:bg-surface-container">
+<div class="p-6 border-b border-outline-variant bg-surface-container-low">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-10 h-10 rounded bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container">database</span>
+</div>
+<div>
+<h3 class="font-headline-md text-sm font-bold text-primary">백엔드 아키텍트</h3>
+<p class="font-label-mono text-[10px] text-on-surface-variant">레벨 14 • 2,450 XP</p>
+</div>
+</div>
+<div class="w-full bg-surface-container-highest h-1 rounded-full overflow-hidden mt-3">
+<div class="bg-secondary h-full" style="width: 65%;"></div>
+</div>
+</div>
+<nav class="flex-1 py-4">
+<a class="flex items-center gap-3 text-on-surface-variant px-4 py-3 hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="account_tree">account_tree</span>
+<span class="font-label-mono text-label-mono">개요</span>
+</a>
+<a class="flex items-center gap-3 bg-surface-container-highest text-secondary border-l-4 border-secondary px-4 py-3 translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="account_tree">account_tree</span>
+<span class="font-label-mono text-label-mono">테크트리</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant px-4 py-3 hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="leaderboard">leaderboard</span>
+<span class="font-label-mono text-label-mono">나의 학습 현황</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant px-4 py-3 hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="military_tech">military_tech</span>
+<span class="font-label-mono text-label-mono">뱃지 목록</span>
+</a>
+</nav>
+<div class="p-4">
+<button class="w-full py-3 bg-primary text-on-primary rounded-lg font-bold text-sm flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+                    학습 이어하기
+                    <span class="material-symbols-outlined text-sm">play_arrow</span>
+</button>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="flex-1 lg:ml-64 p-gutter overflow-y-auto">
+<div class="max-w-5xl mx-auto">
+<!-- Roadmap Header -->
+<div class="mb-12">
+<div class="flex items-center gap-2 text-secondary mb-2">
+<span class="material-symbols-outlined text-sm">terminal</span>
+<span class="font-label-mono text-label-mono tracking-widest uppercase">전문 분야</span>
+</div>
+<h1 class="font-display-lg text-display-lg mb-4">데이터베이스 시스템</h1>
+<p class="text-on-surface-variant max-w-2xl font-body-lg text-body-lg">
+                        데이터 지속성, 인덱싱 전략 및 분산 스토리지 시스템의 기술을 마스터하세요. 기초 SQL에서 아키텍트 수준의 데이터베이스 설계로 전환하는 기술 경로를 따릅니다.
+                    </p>
+</div>
+<!-- Tree Visualization Canvas -->
+<div class="relative flex flex-col items-center gap-node-gap pb-32">
+<!-- SVG Connecting Lines (Static Simulation) -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none opacity-40" xmlns="http://www.w3.org/2000/svg">
+<path class="node-line" d="M 512 80 L 512 160"></path>
+<path class="node-line" d="M 512 240 L 512 280 L 256 280 L 256 320"></path>
+<path class="node-line" d="M 512 280 L 768 280 L 768 320"></path>
+<path class="node-line" d="M 256 400 L 256 480"></path>
+<path class="node-line" d="M 768 400 L 768 480"></path>
+</svg>
+<!-- Root Node: Fundamentals -->
+<div class="relative z-10 w-full flex justify-center">
+<div class="cursor-pointer group bg-surface-container-high border-2 border-secondary/40 p-6 rounded-xl w-64 flex flex-col items-center text-center hover:border-secondary transition-all" onclick="openNode('데이터베이스 기초')">
+<div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center mb-4 text-secondary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<span class="font-label-caps text-label-caps text-secondary mb-1">완료됨</span>
+<h3 class="font-headline-md text-headline-md">데이터베이스 기초</h3>
+<div class="mt-4 flex gap-1">
+<span class="px-2 py-0.5 bg-surface-container-highest text-[10px] rounded font-label-mono">ACID</span>
+<span class="px-2 py-0.5 bg-surface-container-highest text-[10px] rounded font-label-mono">CAP</span>
+</div>
+</div>
+</div>
+<!-- Level 2: SQL vs NoSQL -->
+<div class="relative z-10 w-full flex justify-around gap-gutter">
+<!-- SQL Path -->
+<div class="cursor-pointer group bg-surface-container-high border-2 border-primary p-6 rounded-xl w-64 flex flex-col items-center text-center active-glow transition-all" onclick="openNode('관계형 SQL')">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4 text-primary">
+<span class="material-symbols-outlined">pending</span>
+</div>
+<span class="font-label-caps text-label-caps text-primary mb-1">진행 중</span>
+<h3 class="font-headline-md text-headline-md">관계형 (SQL)</h3>
+<div class="mt-4 flex gap-1">
+<span class="px-2 py-0.5 bg-primary/20 text-primary text-[10px] rounded font-label-mono border border-primary/30">PostgreSQL</span>
+</div>
+</div>
+<!-- NoSQL Path -->
+<div class="cursor-pointer group bg-surface-container-low border-2 border-outline-variant p-6 rounded-xl w-64 flex flex-col items-center text-center hover:border-outline transition-all" onclick="openNode('NoSQL 생태계')">
+<div class="w-12 h-12 rounded-full bg-surface-variant flex items-center justify-center mb-4 text-outline">
+<span class="material-symbols-outlined">lock</span>
+</div>
+<span class="font-label-caps text-label-caps text-outline mb-1">잠금됨</span>
+<h3 class="font-headline-md text-headline-md">NoSQL 생태계</h3>
+<div class="mt-4 flex gap-1">
+<span class="px-2 py-0.5 bg-surface-container-highest text-[10px] rounded font-label-mono opacity-50">MongoDB</span>
+</div>
+</div>
+</div>
+<!-- Level 3: Optimization -->
+<div class="relative z-10 w-full flex justify-around gap-gutter">
+<!-- Indexing -->
+<div class="cursor-pointer group bg-surface-container-low border-2 border-outline-variant border-dashed p-6 rounded-xl w-64 flex flex-col items-center text-center opacity-70" onclick="openNode('인덱싱 전략')">
+<div class="w-12 h-12 rounded-full bg-surface-variant flex items-center justify-center mb-4 text-outline">
+<span class="material-symbols-outlined">lock</span>
+</div>
+<span class="font-label-caps text-label-caps text-outline mb-1">잠금됨</span>
+<h3 class="font-headline-md text-headline-md">인덱싱 전략</h3>
+</div>
+<!-- Caching -->
+<div class="cursor-pointer group bg-surface-container-low border-2 border-outline-variant border-dashed p-6 rounded-xl w-64 flex flex-col items-center text-center opacity-70" onclick="openNode('분산 캐싱')">
+<div class="w-12 h-12 rounded-full bg-surface-variant flex items-center justify-center mb-4 text-outline">
+<span class="material-symbols-outlined">lock</span>
+</div>
+<span class="font-label-caps text-label-caps text-outline mb-1">잠금됨</span>
+<h3 class="font-headline-md text-headline-md">분산 캐싱</h3>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Node Detail Sidebar (Drawer) -->
+<div class="fixed inset-y-0 right-0 w-full sm:w-96 bg-surface-container-high border-l border-outline-variant transform translate-x-full transition-transform duration-300 z-[60] shadow-2xl" id="nodeDrawer">
+<div class="h-full flex flex-col">
+<div class="p-6 border-b border-outline-variant flex justify-between items-center bg-surface-container-highest">
+<h2 class="font-headline-lg text-headline-lg" id="drawerTitle">관계형 SQL</h2>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary" onclick="closeNode()">close</button>
+</div>
+<div class="flex-1 overflow-y-auto p-6">
+<div class="mb-8">
+<img class="w-full h-40 object-cover rounded-lg mb-6" data-alt="A futuristic database server room with glowing blue neon lines flowing through server racks. The aesthetic is clean, technological, and high-performance, with a dark slate and primary blue color palette. Soft atmospheric lighting highlights the precision and complexity of data management systems." id="drawerImage" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXq4WWJHihXw2Cn5k17cQiig29k5hL7Zvszn1lRbx2tjvccBICNmSQlrhvgtj4su1JgxN_wHPQKQ3OCO2xg8W-Sqcpto9yRDCNDiiY4rloOE6OLxPgzRpAFpiaHnau8a6BnxUpm_mRWJd20Y7DTmqkP1VpyTzhAxsc0RhN3jSr7GJisvkRv0gtK7el0gdaqyfN3GW-yPCA2ELLmZuH5dPjUf53iRcFfIDGhUNaXc1__Y8qwR_Zt5QLcij8mDxTIbSMCnl46S_kctoB"/>
+<p class="text-on-surface-variant font-body-md mb-4" id="drawerDesc">
+                        관계형 데이터베이스 마스터는 스키마 이해, 정규화 및 복잡한 쿼리 작성을 포함합니다. PostgreSQL이 이 노드의 주요 초점입니다.
+                    </p>
+<div class="flex items-center gap-4 py-3 border-y border-outline-variant mb-6">
+<div class="flex-1">
+<span class="font-label-caps text-xs text-outline block mb-1">진행도</span>
+<div class="w-full bg-background h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full" id="drawerProgress" style="width: 45%;"></div>
+</div>
+</div>
+<span class="font-label-mono text-primary text-sm">45%</span>
+</div>
+</div>
+<div class="space-y-6">
+<div>
+<h4 class="font-label-caps text-outline mb-4">학습 리소스</h4>
+<div class="space-y-3">
+<a class="flex items-center gap-3 p-3 rounded-lg bg-surface-container hover:bg-surface-container-lowest border border-outline-variant group" href="#">
+<span class="material-symbols-outlined text-primary">menu_book</span>
+<div class="flex-1">
+<span class="block text-sm font-medium">PostgreSQL 심층 탐구</span>
+<span class="text-[10px] text-outline font-label-mono">공식 문서 • 45m</span>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary text-sm">open_in_new</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg bg-surface-container hover:bg-surface-container-lowest border border-outline-variant group" href="#">
+<span class="material-symbols-outlined text-secondary">play_circle</span>
+<div class="flex-1">
+<span class="block text-sm font-medium">SQL 성능 마스터리</span>
+<span class="text-[10px] text-outline font-label-mono">비디오 강의 • 3h 20m</span>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary text-sm">open_in_new</span>
+</a>
+</div>
+</div>
+<div>
+<h4 class="font-label-caps text-outline mb-4">핵심 개념</h4>
+<ul class="space-y-2">
+<li class="flex items-center gap-2 text-sm">
+<span class="material-symbols-outlined text-secondary text-xs" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>관계 대수</span>
+</li>
+<li class="flex items-center gap-2 text-sm">
+<span class="material-symbols-outlined text-secondary text-xs" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>정규화 (1NF-3NF)</span>
+</li>
+<li class="flex items-center gap-2 text-sm text-outline">
+<span class="material-symbols-outlined text-xs">radio_button_unchecked</span>
+<span>쿼리 최적화 및 실행 계획</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="p-6 bg-surface-container-highest border-t border-outline-variant">
+<button class="w-full py-4 bg-primary text-on-primary rounded-lg font-bold flex items-center justify-center gap-2 hover:brightness-110 transition-all">
+                    노드 학습 재개
+                    <span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Backdrop -->
+<div class="fixed inset-0 bg-background/80 backdrop-blur-sm z-[55] opacity-0 pointer-events-none transition-opacity duration-300" id="backdrop" onclick="closeNode()"></div>
+<script>
+        const drawer = document.getElementById('nodeDrawer');
+        const backdrop = document.getElementById('backdrop');
+        const title = document.getElementById('drawerTitle');
+        const desc = document.getElementById('drawerDesc');
+        const progress = document.getElementById('drawerProgress');
+
+        function openNode(nodeName) {
+            title.innerText = nodeName;
+            
+            // Contextual data updates
+            if(nodeName === '데이터베이스 기초') {
+                desc.innerText = "모든 현대적 저장 시스템의 필수 구성 요소입니다. 관계형 이론, ACID 속성 및 기본 데이터 모델링 기술을 다룹니다.";
+                progress.style.width = '100%';
+            } else if (nodeName.includes('잠금됨')) {
+                desc.innerText = "이 고급 개념은 현재 잠겨 있습니다. 이 경로를 잠금 해제하려면 선행 노드인 '관계형 SQL'을 완료하세요.";
+                progress.style.width = '0%';
+            } else if (nodeName === '관계형 SQL') {
+                desc.innerText = "관계형 데이터베이스 마스터는 스키마 이해, 정규화 및 복잡한 쿼리 작성을 포함합니다. PostgreSQL이 이 노드의 주요 초점입니다.";
+                progress.style.width = '45%';
+            } else {
+                desc.innerText = nodeName + "의 실제 구현을 위한 심화 과정입니다. 수평적으로 확장하고 고동시성 환경을 위해 최적화하는 방법을 배웁니다.";
+                progress.style.width = '45%';
+            }
+
+            drawer.classList.remove('translate-x-full');
+            backdrop.classList.remove('opacity-0', 'pointer-events-none');
+            backdrop.classList.add('opacity-100', 'pointer-events-auto');
+        }
+
+        function closeNode() {
+            drawer.classList.add('translate-x-full');
+            backdrop.classList.add('opacity-0', 'pointer-events-none');
+            backdrop.classList.remove('opacity-100', 'pointer-events-auto');
+        }
+
+        // Add some technical floating effects
+        document.querySelectorAll('.cursor-pointer').forEach(node => {
+            node.addEventListener('mouseenter', () => {
+                node.style.transform = 'translateY(-4px)';
+            });
+            node.addEventListener('mouseleave', () => {
+                node.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body></html>
