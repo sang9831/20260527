@@ -229,24 +229,6 @@ body.vibrant-tech {
   border: 1px solid rgba(123, 209, 250, 0.2);
 }
 
-.palette-swatch {
-  width: 3rem;
-  height: 3rem;
-  border-radius: 0.9rem;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  flex-shrink: 0;
-}
-
-.form-control.bg-dark {
-  background-color: rgba(4, 14, 33, 0.9) !important;
-}
-
-.form-control.bg-dark:focus {
-  border-color: rgba(123, 209, 250, 0.55);
-  box-shadow: 0 0 0 0.2rem rgba(123, 209, 250, 0.15);
-}
-
 .top-nav-link {
   color: var(--vt-on-surface-variant);
 }

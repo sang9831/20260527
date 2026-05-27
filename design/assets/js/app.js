@@ -2,7 +2,6 @@ const navItems = [
   { href: "index.html", label: "홈" },
   { href: "roadmap.html", label: "로드맵" },
   { href: "resources.html", label: "리소스" },
-  { href: "design-system.html", label: "디자인 시스템" },
 ];
 
 const homeHighlights = [
@@ -95,22 +94,6 @@ const resources = [
   },
 ];
 
-const designTokens = [
-  { name: "surface", value: "#081326", tone: "기본 배경" },
-  { name: "surface-container", value: "#151f33", tone: "카드 배경" },
-  { name: "primary", value: "#7bd1fa", tone: "주요 액션" },
-  { name: "secondary", value: "#a0cde5", tone: "보조 정보" },
-  { name: "tertiary", value: "#ddbaff", tone: "특수 강조" },
-  { name: "on-surface", value: "#d8e2fd", tone: "기본 텍스트" },
-];
-
-const typographySamples = [
-  { label: "headline-lg", sample: "Backend Developer Tech Tree", className: "display-6" },
-  { label: "headline-md", sample: "학습 경로를 단계별로 관리", className: "h2" },
-  { label: "body-lg", sample: "백엔드 취업을 위한 핵심 개념, 실습, 배포를 연결합니다.", className: "fs-5" },
-  { label: "body-md", sample: "문서, 강의, 프로젝트를 균형 있게 조합해 학습 흐름을 유지합니다.", className: "small" },
-];
-
 function escapeHtml(value) {
   return value
     .replaceAll("&", "&amp;")
@@ -166,7 +149,6 @@ function renderFooter() {
           <a class="link-light link-underline-opacity-0 link-underline-opacity-100-hover top-nav-link" href="index.html">Home</a>
           <a class="link-light link-underline-opacity-0 link-underline-opacity-100-hover top-nav-link" href="roadmap.html">Roadmap</a>
           <a class="link-light link-underline-opacity-0 link-underline-opacity-100-hover top-nav-link" href="resources.html">Resources</a>
-          <a class="link-light link-underline-opacity-0 link-underline-opacity-100-hover top-nav-link" href="design-system.html">Design System</a>
         </div>
       </div>
     </footer>
@@ -494,109 +476,6 @@ function renderResourcesPage() {
   `;
 }
 
-function renderDesignSystemPage() {
-  return `
-    ${renderNav("design-system.html")}
-    <main class="container py-4 py-lg-5">
-      <section class="surface-card p-4 p-lg-5 mb-4">
-        <div class="row align-items-end g-4">
-          <div class="col-lg-8">
-            <div class="section-badge text-primary fw-semibold mb-2">Design system</div>
-            <h1 class="display-6 fw-semibold mb-3">Vibrant Tech</h1>
-            <p class="text-muted-soft mb-0">
-              딥 네이비 배경, 선명한 스카이 블루, 절제된 글래스 효과를 바탕으로 한 백엔드 테크트리 전용 디자인 시스템입니다.
-            </p>
-          </div>
-          <div class="col-lg-4">
-            <div class="surface-soft rounded-4 p-3">
-              <div class="small text-muted-soft mb-2">Core vibe</div>
-              <div class="fw-semibold mb-1">Corporate / Modern</div>
-              <div class="small text-muted-soft">고대비 · 반투명 레이어 · 정보 중심의 카드 UI</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="row g-4 mb-4">
-        <div class="col-xl-7">
-          <div class="surface-card p-4 p-lg-5 h-100">
-            <div class="section-badge text-info fw-semibold mb-3">Color tokens</div>
-            <div class="row g-3">
-              ${designTokens
-                .map(
-                  (token) => `
-                    <div class="col-md-6">
-                      <div class="surface-soft rounded-4 p-3 h-100 d-flex gap-3 align-items-center">
-                        <span class="palette-swatch" style="background:${token.value};"></span>
-                        <div>
-                          <div class="fw-semibold">${token.name}</div>
-                          <div class="small text-muted-soft">${token.value} · ${token.tone}</div>
-                        </div>
-                      </div>
-                    </div>`
-                )
-                .join("")}
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-5">
-          <div class="surface-card p-4 p-lg-5 h-100">
-            <div class="section-badge text-info fw-semibold mb-3">Typography</div>
-            <div class="d-grid gap-3">
-              ${typographySamples
-                .map(
-                  (item) => `
-                    <div class="surface-soft rounded-4 p-3">
-                      <div class="small text-muted-soft mb-1">${item.label}</div>
-                      <div class="${item.className} fw-semibold mb-0">${item.sample}</div>
-                    </div>`
-                )
-                .join("")}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="row g-4">
-        <div class="col-lg-4">
-          <article class="surface-card p-4 h-100">
-            <div class="section-badge text-primary fw-semibold mb-3">Buttons</div>
-            <div class="d-grid gap-3">
-              <button class="btn btn-primary btn-lg">Primary Action</button>
-              <button class="btn btn-outline-light btn-lg">Secondary Action</button>
-              <button class="btn btn-link text-info text-decoration-none fw-semibold px-0">Text link action</button>
-            </div>
-          </article>
-        </div>
-        <div class="col-lg-4">
-          <article class="surface-card p-4 h-100">
-            <div class="section-badge text-primary fw-semibold mb-3">Input fields</div>
-            <label for="designSearch" class="form-label small text-muted-soft">Search tech tree</label>
-            <input id="designSearch" type="text" class="form-control form-control-lg bg-dark border border-light border-opacity-10 text-light" placeholder="예: Docker, Redis" />
-            <div class="form-text text-muted-soft mt-3">포커스 시 primary glow가 드러나는 어두운 입력 필드</div>
-          </article>
-        </div>
-        <div class="col-lg-4">
-          <article class="surface-card p-4 h-100">
-            <div class="section-badge text-primary fw-semibold mb-3">Chips and cards</div>
-            <div class="d-flex flex-wrap gap-2 mb-3">
-              <span class="chip is-active">Primary</span>
-              <span class="chip">Secondary</span>
-              <span class="chip">Tertiary</span>
-            </div>
-            <div class="surface-soft rounded-4 p-3">
-              <div class="small text-muted-soft mb-1">Card pattern</div>
-              <div class="fw-semibold mb-1">16px radius, 16px padding</div>
-              <div class="small text-muted-soft">부드러운 모서리와 얕은 경계선으로 계층을 표현합니다.</div>
-            </div>
-          </article>
-        </div>
-      </section>
-    </main>
-    ${renderFooter()}
-  `;
-}
-
 function setupResourceFilters() {
   const chips = Array.from(document.querySelectorAll("[data-filter]"));
   const cards = Array.from(document.querySelectorAll("#resourceGrid [data-category]"));
@@ -625,8 +504,6 @@ function bootstrapPage() {
       ? renderRoadmapPage()
       : page === "resources"
       ? renderResourcesPage()
-      : page === "design-system"
-      ? renderDesignSystemPage()
       : renderHomePage();
 
   setupResourceFilters();
