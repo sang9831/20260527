@@ -1,0 +1,44 @@
+{
+  "projectId": "12509800722083343760",
+  "projectTitle": "백엔드 개발자 테크트리",
+  "downloadRoot": ".stitch-assets/backend-tech-tree-round3",
+  "items": [
+    {
+      "id": "40c1748aa58f484788ec713913a5268a",
+      "title": "로드맵 - 테크트리 상세",
+      "type": "screen",
+      "downloaded": true,
+      "files": {
+        "image": ".stitch-assets/backend-tech-tree-round3/40c1748aa58f484788ec713913a5268a/screenshot.png",
+        "code": ".stitch-assets/backend-tech-tree-round3/40c1748aa58f484788ec713913a5268a/code.html"
+      }
+    },
+    {
+      "id": "499ec32b6bfc4afeb9e396b57fbc5461",
+      "title": "홈 - 백엔드트리",
+      "type": "screen",
+      "downloaded": true,
+      "files": {
+        "image": ".stitch-assets/backend-tech-tree-round3/499ec32b6bfc4afeb9e396b57fbc5461/screenshot.png",
+        "code": ".stitch-assets/backend-tech-tree-round3/499ec32b6bfc4afeb9e396b57fbc5461/code.html"
+      }
+    },
+    {
+      "id": "800be60ae4ce46418c23632046f82464",
+      "title": "학습 리소스 센터",
+      "type": "screen",
+      "downloaded": true,
+      "files": {
+        "image": ".stitch-assets/backend-tech-tree-round3/800be60ae4ce46418c23632046f82464/screenshot.png",
+        "code": ".stitch-assets/backend-tech-tree-round3/800be60ae4ce46418c23632046f82464/code.html"
+      }
+    },
+    {
+      "id": "asset-stub-assets-9cc8578e66b9478a9b5d08ef47b2f147-1779873351090",
+      "title": "Design System",
+      "type": "design_system",
+      "downloaded": false,
+      "note": "Requested entity was not found. The metadata returned no image_url or code_url for this id in this project."
+    }
+  ]
+}
